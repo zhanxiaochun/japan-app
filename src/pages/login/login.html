@@ -1,0 +1,42 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>登录</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-row justify-content-between class="item-box">
+            <div justify-content-between align-items-center>
+              <label class="label-box"><i class="iconfont" style="font-size:30px;">&#xe60d;</i></label>
+              <input type="test" class="item-input" value="" placeholder="请输入手机号码" #phonenum>
+            </div>
+        </ion-row>
+  
+        <ion-row justify-content-between class="item-box">
+            <div justify-content-between align-items-center>
+              <label class="label-box"><i class="iconfont" style="font-size:30px;">&#xe67f;</i></label>
+              <input type="password" class="item-input" value="" placeholder="请输入登录密码" #password>
+            </div>
+        </ion-row>
+  
+        <ion-row justify-content-center align-items-center class="login-button" (click)="loginDataSubmit(phonenum,password)">
+              登录
+        </ion-row>
+
+        <ion-row justify-content-between class="item-forgetpass">
+              <div>忘记密码？</div>
+              <div>注册</div>
+        </ion-row>
+    
+    </ion-list>
+</ion-content>

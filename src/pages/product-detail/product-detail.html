@@ -1,0 +1,83 @@
+<!--
+  Generated template for the ProductDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>商品详情页</ion-title>
+    <ion-buttons end padding-right>
+        <button (click)="gocart()" style="background-color:#fff;">
+          <ion-icon name="ios-cart-outline" style="font-size:20px;"></ion-icon>
+        </button> 
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-slides>
+        <ion-slide *ngFor="let item of product.images">
+            <!-- <img src="http://www.jj.com/uploadfile/{{item.adfile}}" alt="" style="height:175px;width:375px;"> -->
+            <img src="{{item}}" alt="" style="height:375px;width:375px;">
+          <!-- <div class="cover"></div>
+          <span class="title">{{item.Title}}</span> -->
+        </ion-slide>
+      </ion-slides>
+
+      <div padding>
+          <ion-row justify-content-between>
+              <div class="list-price buy">
+              <span class="price-new"><i>￥</i>{{product.webprice}}</span>
+              </div>
+              <span class="sharecolor"><ion-icon class="iconfont">&#xe69c;</ion-icon>&nbsp;&nbsp;分享</span>
+          </ion-row>
+          <div class="productname">{{product.productname}}</div>
+      </div>
+
+      <div padding class="product-select">
+        <ion-row justify-content-between (click)="presentProfileModal()">
+          <div>{{selectTitle}}</div>
+          <div><ion-icon class="iconfont">&#xe604;</ion-icon></div>
+        </ion-row>
+      </div>
+
+      <div padding-top>
+        <ion-segment [(ngModel)]="productcontent">
+          <ion-segment-button value="explains">
+            商品详情
+          </ion-segment-button>
+          <ion-segment-button value="comment" (click)="getComment(product.id)">
+            用户评价
+          </ion-segment-button>
+        </ion-segment>
+
+        <div [ngSwitch]="productcontent">
+          <ion-list *ngSwitchCase="'explains'">
+            <div [innerHTML]="assembleHTML(product.explains)">
+              {{product.explains}}
+            </div>
+          </ion-list>
+        
+          <ion-list *ngSwitchCase="'comment'">
+            评价内容
+          </ion-list>
+        </div>
+        
+        <!-- <div [innerHTML]="assembleHTML(product.explains)">
+          {{product.explains}}
+        </div> -->
+      </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row class="product-btn" justify-content-between>
+    <div class="btn-left" (click)="addcart()">加入购物车</div>
+    <div class="btn-right">立即购买</div>
+  </ion-row>
+</ion-footer>

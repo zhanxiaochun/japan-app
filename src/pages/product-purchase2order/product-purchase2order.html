@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ProductPurchase2orderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>确认订单</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-bgcolor">
+
+    <div padding-left padding-right padding-top class="address-border">
+        <div padding class="address-box">
+            <ion-row justify-content-between>
+              <div style="width:90%;">
+                  <ion-row justify-content-between>
+                    <div>{{address.name}}</div>
+                    <div>{{address.mobile}}</div>
+                  </ion-row>
+                  <div>{{address.address}}</div>
+              </div>
+              <div class="icon-box" (click)="manageAddress()"><ion-icon name="arrow-forward"></ion-icon></div>
+            </ion-row>
+        </div>
+    </div>
+
+    <div padding-right padding-left class="item-border">
+        <ion-row justify-content-between align-items-center style="text-align: center;">
+            <div class="" style="text-align:center!important;">代购商品</div>
+            <div><ion-icon name="arrow-up"></ion-icon></div>
+        </ion-row>
+    </div>
+    <div padding-right padding-left class="item-border2">
+          <ion-row justify-content-start align-items-center class="flex-nowrap">
+              <div class="product-img"><img src="{{product.images[0]}}" alt=""></div>
+              <div class="product">
+                <div class="product-title">{{product.productName}}</div>
+                <div class="product-attr" *ngIf="product.note">{{product.note}}</div>
+                <div justify-content-between class="list-price">
+                    <div>
+                        <span class="price-new"><i>{{coin}}</i>{{product.price}}</span>
+                    </div>
+                    
+                    <div><ion-icon class="close-font" name="md-close"></ion-icon>{{product.count}}</div>
+                </div>
+              </div>
+          </ion-row>
+    </div>
+    <ion-row justify-content-end padding class="item-border2 item-price">
+        <!-- <span class="">运费:<i>{{coin}}</i>{{transport[1]}}</span> -->
+        <span class="price-new">小计:<i>{{coin}}</i>{{product.total}}</span>
+    </ion-row>
+
+</ion-content>
+
+<ion-footer class="foot-box">
+    <ion-row justify-content-end class="foot-fee">
+      <div>共<span class="color6">{{product.count}}</span>件，</div>
+      <div>总金额：<span class="color6"><i>{{coin}}</i><span class="total-font">{{product.total}}</span></span></div>
+      <div class="jiesuan" (click)="createOrders()">提交订单</div>
+    </ion-row>
+</ion-footer>

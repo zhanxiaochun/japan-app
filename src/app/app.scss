@@ -1,0 +1,142 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// @import '../assets/icon/iconfont.scss';
+.icon-home{
+    color:red;
+}
+
+.item-ios.item-block .item-inner {
+    padding-right: 8px;
+    padding-right: 8px;
+    // border-bottom: 0.55px solid #c8c7cc;
+    border:none!important;
+}
+.checkbox-ios .checkbox-checked {
+    border-color: #ff3633!important;
+    background-color: #ff4633!important;
+}
+
+// 底部按钮
+.btn-footer{
+    background-color:#ff4633;font-size:16px;color:#fff;text-align:center;height:50px;line-height:50px;
+}
+
+// 提交成功提示页面
+.success-icon-content{
+    margin-top:50px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content: center;
+    ion-icon{
+        font-size:60px;
+        color:#ff3633;
+    }
+}
+.success-title{
+    font-size:16px;
+    font-weight:600;
+    text-align:center;
+    color:#333333;
+}
+.success-note{
+    font-size:14px;
+    text-align: center;
+    color:#656565;
+    margin-top:10px;
+}
+.btn-row{
+    margin-top:30px;
+}
+.btn-border{
+    color:#363636;
+    padding:8px 30px;
+    border:1px solid #999999;
+    border-radius: 5px;
+    font-size:14px;
+}
+
+// 选项卡
+.segment-ios .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 3.2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff!important;
+    // border:none!important;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    color: #333333!important;
+    background-color: transparent;
+}
+.segment-ios .segment-button.segment-activated {
+    color: #ff4633!important;
+    background-color: #fff;
+    border-bottom:3px solid #ff4633!important;
+    opacity: 1;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+}
+.segment-md .segment-button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    height: 4.2rem;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 4rem;
+    text-transform: uppercase;
+    color: #ff4633!important;
+    background-color: transparent;
+    opacity: 0.7;
+    -webkit-transition: 100ms all linear;
+    transition: 100ms all linear;
+    padding: 0 6px;
+}
+.head-toolbar{
+    border-top:1px solid #D3D3D3;
+    border-bottom:1px solid #fff;
+}
+
+// 内容部分背景
+.content-bg{
+    background:#F3F3F3;
+    color:#333333;
+}
+.item-bg{
+    background:#fff;
+}
+.mt-10{
+    margin-top:10px;
+}
+.fsize-12{
+    font-size:12px;
+}
+.fsize-14{
+    font-size:14px;
+}
+.fsize-16{
+    font-size:16px;
+}

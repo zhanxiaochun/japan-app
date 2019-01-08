@@ -1,0 +1,19 @@
+page-helpcenter {
+    .icon-box{
+        display: flex;
+        align-items: center;
+        // justify-content:center;
+    }
+    .help-title{
+        font-weight:600;
+    }
+    .help-title1{
+        margin-top:10px;
+    }
+    .fsize-15{
+        font-size:15px;
+    }
+    .item-border{
+        border-bottom:1px solid #EEEEEE;
+    }
+}

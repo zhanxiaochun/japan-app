@@ -1,0 +1,275 @@
+page-home {
+    .head-bgcolor{
+        background-color:#FF6B4D!important;
+    }
+    .home-head-input{
+        width:auto;
+        border:1px solid blue;
+        border-radius:5px;
+        font-size:14px;
+        font-weight:100;
+        height:30px;
+    }
+    .content-bgcolor{
+        background-color:#ffffff;
+    }
+    .div-center{
+        text-align: center;
+    }
+
+    ion-slides {
+        height: 30%;
+        .cover {
+          position: absolute;
+          bottom: 0px;
+          width: 100%;
+          height: 20px;
+          background: linear-gradient(to right, #673743, #f9537d);
+          opacity: 0.6;
+        }
+        .title {
+          position: absolute;
+          bottom: 0px;
+          width: 90%;
+          height: 20px;
+          line-height: 20px;
+          font-size: 60%;
+          left: 5px;
+          text-align: center;
+          color: white;
+        }
+      }
+      .categories {
+        .title {
+          font-family: "黑体-简";
+          font-weight: 300;
+          color: #808080;
+          font-size: 80%;
+          display: block;
+          margin-top: 5px;
+        }
+        ion-row {
+          background-color: #efefef;
+          padding: 0px;
+        }
+        ion-col {
+          background-color: white;
+          /*border: 1px solid #efefef;*/
+        }
+      }
+      // .icon {
+      //   border-radius: 100px;
+      //   color: white;
+      //   background-color: #f8285c;
+      //   font-size: 36px !important;
+      //   padding: 5px;
+      // }
+      .c1 {
+        background-color: orangered;
+      }
+      .c2 {
+        background-color: blueviolet;
+      }
+      .c3 {
+        background-color: sandybrown;
+      }
+      .c4 {
+        background-color: slateblue;
+      }
+      .c5 {
+        background-color: orange;
+      }
+      .c6 {
+        background-color: dimgray;
+      }
+      .t-header {
+        font-family: "黑体-简";
+        font-weight: 600;
+        font-size:20px;
+        border-top: 5px solid #efefef;
+        background: white;
+      }
+      .stores {
+        .title {
+          font-family: "黑体-简";
+          font-weight: 300;
+          color: #808080;
+          font-size: 80%;
+          display: block;
+          margin-top: 5px;
+        }
+        ion-row {
+          background-color: #efefef;
+          padding: 0px;
+        }
+        ion-col {
+          background-color: white;
+          border: 1px solid #efefef;
+        }
+      }
+      .product {
+        ion-row {
+          background-color: #efefef;
+          font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+          padding-top: 3px;
+          ion-col {
+            position: relative;
+            background-color: white;
+            border: 2px solid #efefef;
+            border-radius: 2px;
+            padding: 0px;
+            p {
+              margin: 0px;
+              padding: 0px;
+              width: 100%;
+              font-size: 12px;
+              font-family: "黑体-简";
+              font-weight: 300;
+              color: #808080;
+              height: 26px;
+              line-height: 26px;
+              background: rgba(255, 255, 255, 0.8);
+              overflow: hidden;
+              text-indent: 5px;
+            }
+          }
+        }
+        .list-price {
+          width: 98%;
+          height: 26px;
+          line-height: 18px;
+          position: relative;
+          bottom: 0;
+          margin: 0 2%;
+        }
+        .price-new {
+          font-size: 18px;
+          color: #f8285c;
+        }
+        .list-price i {
+          font-style: normal;
+          font-size: 12px;
+        }
+        .del {
+          color: rgba(171, 171, 171, 1);
+          text-decoration: line-through;
+          margin-left: 2px;
+        }
+        // .good-btn {
+        //   display: block;
+        //   position: absolute;
+        //   height: 16px;
+        //   line-height: 12px;
+        //   color: #f8285c;
+        //   font-size: 13px;
+        //   font-family: "黑体-简";
+        //   text-align: right;
+        //   top: 5px;
+        //   right: 2px;
+        // }
+        .quan_img {
+          position: absolute;
+          width: 61px;
+          height: 55px;
+          z-index: 5;
+          right: 0;
+          top: 0;
+          cursor: pointer;
+          background: url(/assets/img/quan.png) no-repeat;
+          background-size: contain;
+          color: #fff;
+        }
+        .quan_img .num_money {
+          font-family: Arial;
+          font-size: 18px;
+          height: 40px;
+          left: 9px;
+          position: absolute;
+          text-align: center;
+          top: 14px;
+          width: 40px;
+        }
+      }
+
+      .catebox-border{
+        border-top:1px solid #EEEEEE;
+        border-left:1px solid #EEEEEE;
+        border-bottom:1px solid #EEEEEE;
+        margin-top:10px;
+        margin-bottom:10px;
+      }
+      .catebox-border-right{
+        border-right:1px solid #EEEEEE;
+      }
+      .catetitlecolor3{
+        color:#F99D35;
+      }
+      .catetitlecolor2{
+        color:#BE0000;
+      }
+      .catetitlecolor1{
+        color:#FF1800;
+      }
+      .color-black{
+        color:#000000!important;
+        font-size:20px;
+        font-weight:600;
+      }
+
+      .t-header-right{
+        width:20px;
+        height:20px;
+        border-radius: 50%;
+        margin-right:5px;
+        text-align:center;
+        line-height:18px;
+        color:#fff;
+        background: #F99D35;
+      }
+
+      .categoryimg{
+        // margin-left:15px;
+        // margin-right:15px;
+        height:100px;
+        width:100%;
+      }
+      .home-content{
+        padding-left:15px;
+        padding-right:15px;
+      }
+
+      .head{
+        color:#fff;
+        // padding-top:65px;
+        height:65px;
+        padding-top:26px;
+      }
+      .toolbar-ios {
+        padding: 0px;
+      }
+    
+      .icon{
+        background: none!important;
+        font-size:24px!important;
+      }
+      .font-size24{
+        font-size:20px!important;
+      }
+      .search-box{
+        height:30px;width:75%;background:#fff;margin-bottom:10px;
+        border-radius: 15px;
+        padding-left:15px;
+        padding-right:15px;
+        border:none;
+        color:#000;
+        display:flex;
+        align-items: center;
+      }
+      .search-input{
+        width:80%;
+        border:none;
+        height:28px;
+        color:#000;
+        font-size:12px;
+      }
+}

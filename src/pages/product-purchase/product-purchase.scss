@@ -1,0 +1,96 @@
+page-product-purchase {
+    .input-border{
+        height:42px;
+        border: 1px solid #ff4633;
+        border-radius: 5px;
+        padding-left:10px;
+    }
+    .url-input{
+        height:40px;
+        display:flex;
+        flex:1;
+        border:none;
+    }
+    .btn-input{
+        padding-left:20px;
+        padding-right:20px;
+        background: #ff4633;
+        color:#fff;
+        line-height:40px;
+    }
+    .input-title{
+        color:#666666;
+        display:flex;
+        align-items: center;
+    }
+    .input-border2{
+        height:35px;
+        line-height:35px;
+        border:1px solid #CDCDCD;
+        display:flex;
+        flex:1;
+    }
+    .ture-icon{
+        font-size:20px;
+        margin-left:10px;
+        color:#fff;
+        display:flex;
+        align-items: center;
+    }
+    .active{
+        color:#1FAF02;
+    }
+    .num-box{
+        width:40px;
+        height:35px;
+        border:1px solid #CDCDCD;
+        background:#EEEEEE;
+        display:flex;
+        align-items: center;
+        justify-content:center;
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .num-row{
+        display:flex;
+        align-items: center;
+    }
+    .textarea-border{
+        height:65px;
+        border:1px solid #CDCDCD;
+        display:flex;
+        flex:1;
+    }
+    .text-line{
+        margin-top:20px;
+        margin-bottom:20px;
+       height:2px;
+       border-top:2px solid #ff4633;
+       text-align: center;
+       span{
+           position: relative;
+           top:-12px;
+           background: #fff;
+           padding:0 10px;
+           font-size:16px;
+           color:#ff4633;
+           font-weight:600;
+       }
+    }
+    ion-slides{
+        height:300px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    .icon-weight{
+        font-weight:600;
+        color:#666666;
+        font-size:20px;
+    }
+    .color6{
+        color:#ff4633;
+    }
+    
+
+    
+}

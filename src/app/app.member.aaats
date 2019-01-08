@@ -1,0 +1,30 @@
+import { LoadingController, AlertController, ToastController } from 'ionic-angular';
+import { AppService, AppGlobal } from './app.service';
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
+
+@Injectable()
+export  class AppMember {
+
+    constructor(public loadingCtrl: LoadingController, private alertCtrl: AlertController, private toastCtrl: ToastController, private appService: AppService) { }
+
+    // 提取token
+    getToken(){
+        let token=window.localStorage.getItem('token');
+        return token;
+    }
+
+    // 获取用户信息
+    getMemberInfo(token){
+        let params = {
+            token: token
+        }
+        this.appService.httpGet(AppGlobal.API.memberInfo, params, rs=>{
+            // console.log(rs);
+            if(rs.code == 200){
+                return rs.data;
+            }
+        })
+    }
+
+}

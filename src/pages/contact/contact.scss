@@ -1,0 +1,138 @@
+page-contact {
+    .toolbar-ios {
+        padding: 0px;
+        min-height: 44px;}
+    .login-botton{
+        margin-top:20px;
+        margin-bottom:20px;
+        background:#ff4633;
+        color:#fff;
+        height:40px;
+        text-align:center;
+        line-height:40px;
+    }
+    .mine-top{
+        padding-bottom:20px;
+    }
+    .head-img{
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        background:#fff;
+        img{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+        }
+    }
+    .head{
+        color:#fff;
+        padding-top:45px;
+    }
+    .login-box{
+        font-size:16px;
+        margin-left:20px;
+    }
+    .fontsize14{
+        font-size:14px;
+    }
+    .button-recharge{
+        padding:5px 10px;;
+        border-radius:5px;
+        background-color:#fff;
+        color:#ff4633;
+        border:1px solid #fff;
+        font-size:13px;
+        margin-left:8px;
+    }
+    .button-withdraw{
+        padding:5px 10px;;
+        border-radius:5px;
+        color:#fff;
+        border:1px solid #fff;
+        font-size:13px;
+        margin-left:8px;
+    }
+    .mt-20{
+        margin-top:30px;
+    }
+    .item-center{
+        text-align:center;
+        margin-top:10px;
+        margin-bottom:10px;
+        display:flex;
+        justify-items: center;
+        justify-content: center;
+    }
+    .content-bgcolor{
+        background-color:#F3F3F3;
+    }
+    .item-bgcolor{
+        background-color:#fff;
+    }
+    .item-border{
+        background-color:#fff;
+        margin-top:16px;
+    }
+    .item-mb{
+        margin-bottom:16px;
+    }
+    .list-pd{
+        padding-left:10%;
+        padding-right:10%;
+    }
+    .font-size24{
+        font-size:24px;
+    }
+    .ml-10{
+        margin-left:10px;
+    }
+    .zyicon-box{
+        width:30px;
+        height:30px;
+        border-radius: 50%;
+        display:flex;
+        justify-items: center;
+        justify-content: center;
+        background-color:#4598FF;
+        color:#fff;
+    }
+    .dgicon-box{
+        width:30px;
+        height:30px;
+        border-radius: 50%;
+        display:flex;
+        justify-items: center;
+        justify-content: center;
+        background-color:#47BAFE;
+        color:#fff;
+    }
+    .helpicon-box{
+        width:30px;
+        height:30px;
+        border-radius: 50%;
+        display:flex;
+        justify-items: center;
+        justify-content: center;
+        background-color:#FFAC41;
+        color:#fff;
+    }
+    .order-icon{
+        font-size:30px;
+        color:#ff4633;
+    }
+    .myzy-box{
+        width:30px;
+        height:30px;
+        border-radius: 50%;
+        border:1px solid #ff4633;
+        display:flex;
+        justify-items: center;
+        justify-content: center;
+        color:#fff;
+        ion-icon{
+            font-size:24px!important;
+        }
+    }
+    
+}

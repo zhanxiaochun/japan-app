@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <div style="background: linear-gradient(to right, #FF4633, #FF7454);" padding-left padding-right padding-bottom class="head">
+    <!-- <ion-title>
+      我的
+    </ion-title>//at.alicdn.com/t/font_826901_kd9norbv61.css -->
+    <ion-row justify-content-between>
+      <ion-row justify-content-between align-items-center>
+        <div class="head-img"><img src="../../assets/imgs/cate1.png" alt=""></div>
+        <div class="login-box" *ngIf="token; else notoken">
+          <!-- <span (click)="login()">登录</span>
+          <span>/</span>
+          <span (click)="register()">注册</span> -->
+          <span>{{member.nickname}}</span>
+        </div>
+        <ng-template class="login-box" #notoken>
+          <div class="login-box">
+            <span (click)="login()">登录</span>
+            <span>/</span>
+            <span (click)="register()">注册</span>
+          </div>
+        </ng-template>
+      </ion-row>  
+      <ion-row justify-content-between align-items-center>
+        <!-- <div (click)="goSetup()"><ion-icon class="iconfont">&#xe63f;</ion-icon></div> -->
+        <div (click)="goSetup()"><ion-icon class="iconfont font-size24">&#xe63f;</ion-icon></div>
+        <div (click)="goCart()"><ion-icon class="iconfont font-size24 ml-10">&#xe616;</ion-icon></div>
+      </ion-row>
+    </ion-row>
+
+    <ion-row justify-content-between class="fontsize14 mt-20">
+      <ion-row justify-content-between align-items-center>
+        <div class="">账户余额：{{member.balance}}</div>
+        
+          <div class="button-recharge" (click)="login()">充值</div>
+          <div class="button-withdraw" (click)="logout()">提现</div>
+       
+      </ion-row>  
+      <ion-row justify-content-between align-items-center>
+        <div>积分：</div>
+        <div>{{member.score}}</div>
+      </ion-row>
+    </ion-row>
+  </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-bgcolor">
+  <ion-row justify-content-between padding-top padding-bottom class="item-bgcolor list-pd">
+    <div (click)="nationTransport()">
+      <div class="item-center"><div class="zyicon-box"><ion-icon class="iconfont font-size24">&#xe62c;</ion-icon></div></div>
+      <div>国际转运</div>
+    </div>
+    <div (click)="purchase()">
+      <div class="item-center"><div class="dgicon-box"><ion-icon class="iconfont font-size24">&#xe614;</ion-icon></div></div>
+      <div>线下代购</div>
+    </div>
+    <div (click)="helpCenter()">
+      <div class="item-center"><div class="helpicon-box"><ion-icon class="iconfont font-size24">&#xe646;</ion-icon></div></div>
+      <div>帮助中心</div>
+    </div>
+  </ion-row>
+
+  <div padding class="item-border">
+    <ion-row justify-content-between class="item-mb">
+      <div justify-content-between>
+        <span>商城订单</span>
+        <!-- <span>|</span>
+        <span>线下订单</span> -->
+      </div>
+      <div (click)="shopOrder(0)"><ion-icon class="iconfont">&#xe6d3;</ion-icon></div>
+    </ion-row>
+
+    <ion-row justify-content-between class="list-pd">
+      <div (click)="shopOrder(2)">
+        <div class="item-center"><ion-icon class="iconfont order-icon">&#xe618;</ion-icon></div>
+        <div>待付款</div>
+      </div>
+      <div (click)="shopOrder(7)">
+        <div class="item-center"><ion-icon class="iconfont order-icon">&#xe623;</ion-icon></div>
+        <div>待收货</div>
+      </div>
+      <div (click)="shopOrder(9)">
+        <div class="item-center"><ion-icon class="iconfont order-icon">&#xe615;</ion-icon></div>
+        <div>已完成</div>
+      </div>
+      
+      </ion-row>
+  </div>
+
+  <div padding class="item-border">
+      <ion-row justify-content-between class="item-mb">
+        <div justify-content-between>
+          <span>线下订单</span>
+        </div>
+        <div (click)="goPurchaseOrder(0)"><ion-icon class="iconfont">&#xe6d3;</ion-icon></div>
+      </ion-row>
+  
+      <ion-row justify-content-between padding-left padding-right>
+        <div (click)="goPurchaseOrder(1)">
+          <div class="item-center"><ion-icon class="iconfont order-icon">&#xe623;</ion-icon></div>
+          <div>待确认</div>
+        </div>
+        <div (click)="goPurchaseOrder(2)">
+          <div class="item-center"><ion-icon class="iconfont order-icon">&#xe618;</ion-icon></div>
+          <div>待付款</div>
+        </div>
+        
+        <div (click)="goPurchaseOrder(7)">
+          <div class="item-center"><ion-icon class="iconfont order-icon">&#xe623;</ion-icon></div>
+          <div>待收货</div>
+        </div>
+        <div (click)="goPurchaseOrder(9)">
+          <div class="item-center"><ion-icon class="iconfont order-icon">&#xe615;</ion-icon></div>
+          <div>已完成</div>
+        </div>
+        
+        </ion-row>
+    </div>
+
+  <div padding class="item-border">
+      <ion-row justify-content-between class="item-mb">
+        <div justify-content-between>
+          <span>我的转运</span>
+        </div>
+        <div (click)="goTransOrder(0)"><ion-icon class="iconfont">&#xe6d3;</ion-icon></div>
+      </ion-row>
+  
+      <ion-row justify-content-between class="list-pd">
+          <div (click)="goTransOrder(2)">
+            <div class="item-center"><div class="myzy-box"><ion-icon class="iconfont order-icon">&#xe6c5;</ion-icon></div></div>
+            <div>待付款</div>
+          </div>
+          <div (click)="goTransOrder(7)">
+            <div class="item-center"><div class="myzy-box"><ion-icon class="iconfont order-icon">&#xe62c;</ion-icon></div></div>
+            <div>待收货</div>
+          </div>
+          <div (click)="goTransOrder(8)">
+            <div class="item-center"><div class="myzy-box"><ion-icon class="iconfont order-icon">&#xe653;</ion-icon></div></div>
+            <div>已完成</div>
+          </div>
+      </ion-row>
+  </div>
+
+</ion-content>

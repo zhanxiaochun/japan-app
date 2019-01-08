@@ -1,0 +1,26 @@
+<!--
+  Generated template for the PaysuccessPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>支付结果</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="success-icon">
+    <ion-icon class="icon-font" ios="md-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+  </div>
+  <div class="success-text">订单支付成功！</div>
+  <div class="success-note">支付金额:<span class="pay-price"><i>￥</i>5656</span> </div>
+  <ion-row padding-left padding-right justify-content-between>
+    <div class="btn-border" (click)="goorder()">查看订单</div>
+    <div class="btn-border" (click)="gohome()">返回首页</div>
+  </ion-row>
+</ion-content>

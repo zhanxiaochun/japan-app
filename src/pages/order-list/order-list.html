@@ -1,0 +1,299 @@
+<!--
+  Generated template for the OrderListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的订单</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="pet" class="head-toolbar">
+      <ion-segment-button value="all" (click)="getAllOrders()">
+        全部
+      </ion-segment-button>
+      <ion-segment-button value="waitPay" (click)="getWaitPayOrders()">
+        待付款
+      </ion-segment-button>
+      <ion-segment-button value="waitReceive" (click)="getWaitReceive()">
+        待收货
+      </ion-segment-button>
+      <ion-segment-button value="waitComment" (click)="getWaitComment()">
+        待评论
+      </ion-segment-button>
+      <ion-segment-button value="finished" (click)="getFinished()">
+        已完成
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+    <!-- <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="all" (click)="getAll()">
+          全部
+        </ion-segment-button>
+        <ion-segment-button value="waitpay" (click)="getWaitfor()">
+          待付款
+        </ion-segment-button>
+        <ion-segment-button value="waitreceive">
+          待收货
+        </ion-segment-button>
+        <ion-segment-button value="finished">
+          已完成
+        </ion-segment-button>
+      </ion-segment> -->
+
+      <div [ngSwitch]="pet">
+          <ion-list *ngSwitchCase="'all'">
+            <div *ngFor="let item of allOrders;let i = index">
+                <div padding-top class="content-bgcolor">
+                    <div padding class="item-bgcolor">
+                      <ion-row justify-content-between align-items-center style="text-align: center;">
+                          <div class="" style="text-align:center!important;">{{item.typename}}</div>
+                          <div class="color6">{{item.statusname}}</div>
+                      </ion-row>
+                    </div>
+                  </div>
+                  <div padding-right padding-left class="item-border2">
+                      <!-- <div *ngIf="item.type == 1"> -->
+                          <div *ngFor="let item2 of item.extData">
+                              <ion-row justify-content-start align-items-center class="flex-nowrap border-b">
+                                  <div class="product-img"><img src="{{item2.images}}" alt=""></div>
+                                  <div class="product">
+                                    <div class="product-title">{{item2.productname}}</div>
+                                    <div class="product-attr" *ngIf="item2.attr">{{item2.attr}}</div>
+                                    <div justify-content-between class="list-price">
+                                        <span class="price-new"><i>{{coin}}</i>{{item2.price}}</span>
+                                        <div><ion-icon class="close-font" name="md-close"></ion-icon>{{item2.amount}}</div>
+                                    </div>
+                                  </div>
+                              </ion-row>
+                          </div>
+                          <ion-row justify-content-end class="border-b foot-fee">
+                              <div>共<span class="color6">{{item.amount}}</span>件，</div>
+                              <div>总金额：<span class="color6"><i>{{coin}}</i><span class="total-font">{{item.price}}</span></span></div>
+                            </ion-row>
+                          <ion-row justify-content-end *ngIf="item.status == 2">
+                            <div class="cancel-btn" (click)="cancelOrder(item.id)">取消订单</div>
+                            <div class="pay-btn">立即支付</div>
+                          </ion-row>
+                          <ion-row justify-content-end *ngIf="item.status == 7">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">物流信息</div>
+                              <div class="pay-btn">确认收货</div>
+                          </ion-row>
+                          <ion-row justify-content-end *ngIf="item.status == 8">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                              <div class="pay-btn">评论</div>
+                          </ion-row>
+                          <ion-row justify-content-end *ngIf="item.status == 9">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                              <!-- <div class="pay-btn">确认收货</div> -->
+                          </ion-row>
+                      <!-- </div> -->
+                    </div>
+            </div>
+            
+          </ion-list>
+        
+          <ion-list *ngSwitchCase="'waitPay'">
+              <div *ngFor="let item of allOrders;let i = index">
+                  <div padding-top class="content-bgcolor">
+                      <div padding class="item-bgcolor">
+                        <ion-row justify-content-between align-items-center style="text-align: center;">
+                            <div class="" style="text-align:center!important;">{{item.typename}}</div>
+                            <div class="color6">{{item.statusname}}</div>
+                        </ion-row>
+                      </div>
+                    </div>
+                    <div padding-right padding-left class="item-border2">
+                            <div *ngFor="let item2 of item.extData">
+                                <ion-row justify-content-start align-items-center class="flex-nowrap border-b">
+                                    <div class="product-img"><img src="{{item2.images}}" alt=""></div>
+                                    <div class="product">
+                                      <div class="product-title">{{item2.productname}}</div>
+                                      <div class="product-attr" *ngIf="item2.attr">{{item2.attr}}</div>
+                                      <div justify-content-between class="list-price">
+                                          <span class="price-new"><i>{{coin}}</i>{{item2.price}}</span>
+                                          <div><ion-icon class="close-font" name="md-close"></ion-icon>{{item2.amount}}</div>
+                                      </div>
+                                    </div>
+                                </ion-row>
+                            </div>
+                            <ion-row justify-content-end class="border-b foot-fee">
+                                <div>共<span class="color6">{{item.amount}}</span>件，</div>
+                                <div>总金额：<span class="color6"><i>{{coin}}</i><span class="total-font">{{item.price}}</span></span></div>
+                              </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 2">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">取消订单</div>
+                              <div class="pay-btn">立即支付</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 7">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">物流信息</div>
+                                <div class="pay-btn">确认收货</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 8">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                                <div class="pay-btn">评论</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 9">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                            </ion-row>
+                      </div>
+              </div>
+          </ion-list>
+
+          <ion-list *ngSwitchCase="'waitReceive'">
+              <div *ngFor="let item of allOrders;let i = index">
+                  <div padding-top class="content-bgcolor">
+                      <div padding class="item-bgcolor">
+                        <ion-row justify-content-between align-items-center style="text-align: center;">
+                            <div class="" style="text-align:center!important;">{{item.typename}}</div>
+                            <div class="color6">{{item.statusname}}</div>
+                        </ion-row>
+                      </div>
+                    </div>
+                    <div padding-right padding-left class="item-border2">
+                            <div *ngFor="let item2 of item.extData">
+                                <ion-row justify-content-start align-items-center class="flex-nowrap border-b">
+                                    <div class="product-img"><img src="{{item2.images}}" alt=""></div>
+                                    <div class="product">
+                                      <div class="product-title">{{item2.productname}}</div>
+                                      <div class="product-attr" *ngIf="item2.attr">{{item2.attr}}</div>
+                                      <div justify-content-between class="list-price">
+                                          <span class="price-new"><i>{{coin}}</i>{{item2.price}}</span>
+                                          <div><ion-icon class="close-font" name="md-close"></ion-icon>{{item2.amount}}</div>
+                                      </div>
+                                    </div>
+                                </ion-row>
+                            </div>
+                            <ion-row justify-content-end class="border-b foot-fee">
+                                <div>共<span class="color6">{{item.amount}}</span>件，</div>
+                                <div>总金额：<span class="color6"><i>{{coin}}</i><span class="total-font">{{item.price}}</span></span></div>
+                              </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 2">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">取消订单</div>
+                              <div class="pay-btn">立即支付</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 7">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">物流信息</div>
+                                <div class="pay-btn" (click)="receiveConfirm(item.id)">确认收货</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 8">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                                <div class="pay-btn">评论</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 9">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                            </ion-row>
+                      </div>
+              </div>
+          </ion-list>
+
+          <ion-list *ngSwitchCase="'waitComment'">
+              <div *ngFor="let item of allOrders;let i = index">
+                  <div padding-top class="content-bgcolor">
+                      <div padding class="item-bgcolor">
+                        <ion-row justify-content-between align-items-center style="text-align: center;">
+                            <div class="" style="text-align:center!important;">{{item.typename}}</div>
+                            <div class="color6">{{item.statusname}}</div>
+                        </ion-row>
+                      </div>
+                    </div>
+                    <div padding-right padding-left class="item-border2">
+                            <div *ngFor="let item2 of item.extData">
+                                <ion-row justify-content-start align-items-center class="flex-nowrap border-b">
+                                    <div class="product-img"><img src="{{item2.images}}" alt=""></div>
+                                    <div class="product">
+                                      <div class="product-title">{{item2.productname}}</div>
+                                      <div class="product-attr" *ngIf="item2.attr">{{item2.attr}}</div>
+                                      <div justify-content-between class="list-price">
+                                          <span class="price-new"><i>{{coin}}</i>{{item2.price}}</span>
+                                          <div><ion-icon class="close-font" name="md-close"></ion-icon>{{item2.amount}}</div>
+                                      </div>
+                                    </div>
+                                </ion-row>
+                            </div>
+                            <ion-row justify-content-end class="border-b foot-fee">
+                                <div>共<span class="color6">{{item.amount}}</span>件，</div>
+                                <div>总金额：<span class="color6"><i>{{coin}}</i><span class="total-font">{{item.price}}</span></span></div>
+                              </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 2">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">取消订单</div>
+                              <div class="pay-btn">立即支付</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 7">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">物流信息</div>
+                                <div class="pay-btn" (click)="receiveConfirm(item.id)">确认收货</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 8">
+                                <div class="cancel-btn" (click)="deleteOrder(item.id)">删除订单</div>
+                                <div class="pay-btn" (click)="goComment(item.id)">评论</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 9">
+                                <div class="cancel-btn" (click)="deleteOrder(item.id)">删除订单</div>
+                            </ion-row>
+                      </div>
+              </div>
+          </ion-list>
+
+          <ion-list *ngSwitchCase="'finished'">
+              <div *ngFor="let item of allOrders;let i = index">
+                  <div padding-top class="content-bgcolor">
+                      <div padding class="item-bgcolor">
+                        <ion-row justify-content-between align-items-center style="text-align: center;">
+                            <div class="" style="text-align:center!important;">{{item.typename}}</div>
+                            <div class="color6">{{item.statusname}}</div>
+                        </ion-row>
+                      </div>
+                    </div>
+                    <div padding-right padding-left class="item-border2">
+                            <div *ngFor="let item2 of item.extData">
+                                <ion-row justify-content-start align-items-center class="flex-nowrap border-b">
+                                    <div class="product-img"><img src="{{item2.images}}" alt=""></div>
+                                    <div class="product">
+                                      <div class="product-title">{{item2.productname}}</div>
+                                      <div class="product-attr" *ngIf="item2.attr">{{item2.attr}}</div>
+                                      <div justify-content-between class="list-price">
+                                          <span class="price-new"><i>{{coin}}</i>{{item2.price}}</span>
+                                          <div><ion-icon class="close-font" name="md-close"></ion-icon>{{item2.amount}}</div>
+                                      </div>
+                                    </div>
+                                </ion-row>
+                            </div>
+                            <ion-row justify-content-end class="border-b foot-fee">
+                                <div>共<span class="color6">{{item.amount}}</span>件，</div>
+                                <div>总金额：<span class="color6"><i>{{coin}}</i><span class="total-font">{{item.price}}</span></span></div>
+                              </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 2">
+                              <div class="cancel-btn" (click)="cancelOrder(item.id)">取消订单</div>
+                              <div class="pay-btn">立即支付</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 7">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">物流信息</div>
+                                <div class="pay-btn" (click)="receiveConfirm(item.id)">确认收货</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 8">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                                <div class="pay-btn">评论</div>
+                            </ion-row>
+                            <ion-row justify-content-end *ngIf="item.status == 9">
+                                <div class="cancel-btn" (click)="cancelOrder(item.id)">删除订单</div>
+                            </ion-row>
+                      </div>
+              </div>
+          </ion-list>
+
+      </div>
+
+      <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)">
+        <ion-infinite-scroll-content>正在加载</ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+      <!-- <div *ngIf="orderhas == 1">
+        我是有底线的
+      </div> -->
+</ion-content>

@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ProductAttrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<!-- <ion-content padding> -->
+<ion-footer>
+  <div padding class="modal-box">
+      <ion-row justify-content-between>
+        <div style="width:90%;" *ngIf="product.images[0]">
+          <ion-row justify-content-start align-items-center>
+            <img src="{{product.images[0]}}" alt="">
+            <div class="list-price">
+              <span class="price-new"><i>￥</i>{{product.webprice}}</span>
+              <div class="stock">库存：{{product.stock}}</div>
+            </div>
+          </ion-row>
+        </div>
+        <div><ion-icon class="iconfont" (click)="dismiss()">&#xe85c;</ion-icon></div>
+      </ion-row>
+      <div class="product-attr" *ngFor="let item of attrData; let i=index">
+        <div class="attr-title">{{item.attrKey}}</div>
+        <ion-row wrap class="attr-row">
+          <ion-col class="attr-content" [class.attr-active]="val == attr[i]" col-3 *ngFor="let val of item.attrVal" (click)="selectAttr(val,i)">{{val}}</ion-col>
+        </ion-row>
+      </div>
+
+      <ion-row justify-content-between class="change-num" align-items-center>
+        <div>购买数量</div>
+        <div><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce()"></ion-icon><input type="text" class="num-input" [(ngModel)]="productnum"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus()"></ion-icon></div>
+      </ion-row>
+
+      <button ion-button full style="background:#ff4633;" (click)="makesure()">确定</button>
+    </div>
+</ion-footer>
+  
+    
+<!-- </ion-content> -->

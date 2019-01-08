@@ -1,0 +1,50 @@
+page-about {
+    .input-border{
+        height:42px;
+        border: 1px solid #ff4633;
+        border-radius: 5px;
+        padding-left:10px;
+    }
+    .url-input{
+        height:40px;
+        display:flex;
+        flex:1;
+        border:none;
+    }
+    .btn-input{
+        padding-left:20px;
+        padding-right:20px;
+        background: #ff4633;
+        color:#fff;
+        line-height:40px;
+    }
+    .process-title{
+        text-align:center;
+        padding-top:30px;
+        padding-bottom:30px;
+    }
+    .circle1{
+        width:28px;
+        height:28px;
+        border-radius: 50%;
+        background:#FFDAD6;
+        display: flex;
+        justify-content: center;
+        padding-top:4px;
+        margin:auto;
+    }
+    .circle2{
+        width:20px;
+        height:20px;
+        border-radius: 50%;
+        background:#ff4633;
+        color:#fff;
+        text-align: center;
+        line-height:20px;
+    }
+    
+    .circle-content{
+        margin-top:10px;
+        font-size:12px;
+    }
+}

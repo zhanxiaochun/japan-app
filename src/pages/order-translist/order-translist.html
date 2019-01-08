@@ -1,0 +1,181 @@
+<!--
+  Generated template for the OrderTranslistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的转运</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="transportOrder" class="head-toolbar">
+      <ion-segment-button value="all" (click)="getAllOrders()">
+        全部
+      </ion-segment-button>
+      <ion-segment-button value="waitConfirm" (click)="getWaitConfirm()">
+        待确认
+      </ion-segment-button>
+      <ion-segment-button value="waitPay" (click)="getWaitPayOrders()">
+        待付款
+      </ion-segment-button>
+      <ion-segment-button value="waitReceive" (click)="getWaitReceive()">
+        待收货
+      </ion-segment-button>
+      <ion-segment-button value="finished" (click)="getFinished()">
+        已完成
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="content-bg">
+
+    <div [ngSwitch]="transportOrder">
+        <ion-list *ngSwitchCase="'all'">
+            <div  padding class="item-bg mt-10 line-height30" *ngFor="let item of orders">
+                <ion-row justify-content-between align-items-center>
+                    <div class="">订单编号：{{item.no}}</div>
+                    <div class="color6">{{item.statusname}}</div>
+                </ion-row>
+                <ion-row justify-content-between align-items-center>
+                    <div class="width-left">
+                      <div>下单时间：{{item.createdat}}</div>
+                      <ion-row justify-content-between class="weight-price">
+                          <div class="">货物重量：{{item.weight}}</div>
+                          <div class="">运费：{{item.trafficeprice}}</div>
+                      </ion-row>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 2">
+                        <div class="btn-color6">支付运费</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 7">
+                        <div class="btn-color6" (click)="makesure(item.id)">确认收货</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 8">
+                        <div class="btn-colord" (click)="delete(item.id)">删除运单</div>
+                    </div>
+                    
+                </ion-row>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'waitConfirm'">
+            <div  padding class="item-bg mt-10 line-height30" *ngFor="let item of orders">
+                <ion-row justify-content-between align-items-center>
+                    <div class="">订单编号：{{item.no}}</div>
+                    <div class="color6">{{item.statusname}}</div>
+                </ion-row>
+                <ion-row justify-content-between align-items-center>
+                    <div class="width-left">
+                      <div>下单时间：{{item.createdat}}</div>
+                      <ion-row justify-content-between class="weight-price">
+                          <div class="">货物重量：{{item.weight}}</div>
+                          <div class="">运费：{{item.trafficeprice}}</div>
+                      </ion-row>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 2">
+                        <div class="btn-color6">支付运费</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 7">
+                        <div class="btn-color6" (click)="makesure(item.id)">确认收货</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 8">
+                        <div class="btn-colord" (click)="delete(item.id)">删除运单</div>
+                    </div>
+                    
+                </ion-row>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'waitPay'">
+            <div  padding class="item-bg mt-10 line-height30" *ngFor="let item of orders">
+                <ion-row justify-content-between align-items-center>
+                    <div class="">订单编号：{{item.no}}</div>
+                    <div class="color6">{{item.statusname}}</div>
+                </ion-row>
+                <ion-row justify-content-between align-items-center>
+                    <div class="width-left">
+                      <div>下单时间：{{item.createdat}}</div>
+                      <ion-row justify-content-between class="weight-price">
+                          <div class="">货物重量：{{item.weight}}</div>
+                          <div class="">运费：{{item.trafficeprice}}</div>
+                      </ion-row>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 2">
+                        <div class="btn-color6">支付运费</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 7">
+                        <div class="btn-color6" (click)="makesure(item.id)">确认收货</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 8">
+                        <div class="btn-colord" (click)="delete(item.id)">删除运单</div>
+                    </div>
+                    
+                </ion-row>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'waitReceive'">
+            <div  padding class="item-bg mt-10 line-height30" *ngFor="let item of orders">
+                <ion-row justify-content-between align-items-center>
+                    <div class="">订单编号：{{item.no}}</div>
+                    <div class="color6">{{item.statusname}}</div>
+                </ion-row>
+                <ion-row justify-content-between align-items-center>
+                    <div class="width-left">
+                      <div>下单时间：{{item.createdat}}</div>
+                      <ion-row justify-content-between class="weight-price">
+                          <div class="">货物重量：{{item.weight}}</div>
+                          <div class="">运费：{{item.trafficeprice}}</div>
+                      </ion-row>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 2">
+                        <div class="btn-color6">支付运费</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 7">
+                        <div class="btn-color6" (click)="makesure(item.id)">确认收货</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 8">
+                        <div class="btn-colord" (click)="delete(item.id)">删除运单</div>
+                    </div>
+                    
+                </ion-row>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'finished'">
+            <div  padding class="item-bg mt-10 line-height30" *ngFor="let item of orders">
+                <ion-row justify-content-between align-items-center>
+                    <div class="">订单编号：{{item.no}}</div>
+                    <div class="color6">{{item.statusname}}</div>
+                </ion-row>
+                <ion-row justify-content-between align-items-center>
+                    <div class="width-left">
+                      <div>下单时间：{{item.createdat}}</div>
+                      <ion-row justify-content-between class="weight-price">
+                          <div class="">货物重量：{{item.weight}}</div>
+                          <div class="">运费：{{item.trafficeprice}}</div>
+                      </ion-row>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 2">
+                        <div class="btn-color6">支付运费</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 7">
+                        <div class="btn-color6" (click)="makesure(item.id)">确认收货</div>
+                    </div>
+                    <div class="width-right" *ngIf="item.status == 8">
+                        <div class="btn-colord" (click)="delete(item.id)">删除运单</div>
+                    </div>
+                    
+                </ion-row>
+            </div>
+        </ion-list>
+
+    </div>
+
+</ion-content>

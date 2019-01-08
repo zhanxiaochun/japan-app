@@ -1,0 +1,37 @@
+page-register {
+    .item-box{
+        border-bottom:1px solid #CDCDCD;
+        padding-bottom:10px;
+        margin-top:20px;
+        height:50px;
+        color:#999999;
+    }
+    .label-box{
+        width:50px;
+        padding:0px!important;
+    }
+    .input-login{
+        width:100px;
+    }
+    .item-input{
+        border:0px!important;
+        font-size:14px;
+        height:40px;
+        // width:80%;
+    }
+    .getphonecode{
+        border:1px solid #ff4633;
+        border-radius:5px;
+        padding:5px;
+        line-height:30px;
+        color:#ff4633;
+    }
+    .login-button{
+        height:50px;
+        width:100%;
+        background-color:#ff4633;
+        color:#fff;
+        margin-top:20px;
+        font-size:18px;
+    }
+}

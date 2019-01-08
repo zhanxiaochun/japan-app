@@ -1,0 +1,137 @@
+page-product-purchase2order {
+    .content-bgcolor {
+        background-color: #F3F3F3;
+        font-size: 14px;
+      }
+    
+      .item-bgcolor {
+        background-color: #fff;
+      }
+    
+      .item-border {
+        background-color: #fff;
+        margin-top: 16px;
+    
+        ion-row {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-family: "黑体-简";
+        }
+      }
+
+      .address-border{
+        background-color:#fff;
+      }
+    
+      .item-border2 {
+        background-color: #fff;
+        // padding-bottom:20px;
+        ion-row {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-family: "黑体-简";
+        }
+        margin-bottom:1px;
+      }
+      .flex-nowrap{
+        flex-wrap: nowrap;
+      }
+    
+      .product-img {
+        width: 80px;
+        height: 80px;
+        // border: 1px solid red;
+        flex-shrink: 0;
+      }
+    
+      .product {
+        height: 90px;
+        margin-left: 10px;
+        // border: 1px solid blue;
+      }
+    
+      .product-title {
+        height: 40px;
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        word-break: break-all;
+        font-size:13px;
+        font-weight: 600;
+      }
+      .product-attr{
+        height:20px;
+        line-height:20px;
+        color:#8C8C8C;
+        margin-top:5px;
+    }
+  
+    .list-price {
+      height: 30px;
+      line-height: 30px;
+      position: relative;
+      bottom: 0;
+      display:flex;
+      justify-content: space-between;
+    }
+    .close-font{
+      font-size:14px;
+      margin-right:3px;
+    }
+    .item-price{
+      display: flex;
+      align-items: center;
+    }
+    .item-price i{
+      font-style:normal;
+      font-size:12px;
+    }
+    .price-new {
+      font-size: 14px;
+      color: #f8285c;
+    }
+    .list-price i {
+      font-style: normal;
+      font-size: 12px;
+    }
+    .address-box{
+        width:100%;
+        border:1px dashed blue;
+        line-height:20px;
+        // border-image:url(../../assets/imgs/logo.png) 30 30 round;
+      }
+      .icon-box{
+        width:6%;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
+      .foot-fee{
+        line-height:50px;
+      }
+      .foot-fee i{
+        font-size:14px;
+        font-style:normal;
+      }
+      .color6{
+        color:#ff4633;
+      }
+      .total-font{
+        font-weight: 600;
+      }
+      .foot-box{
+        height:50px;
+        border-top:1px solid #E5E5E5;
+      }
+      .jiesuan{
+        width:120px;
+        background-color:#ff4633;
+        color:#fff;
+        line-height:50px;
+        text-align:center;
+        font-size:16px;
+        margin-left:10px;
+      }
+}

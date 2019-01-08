@@ -1,0 +1,54 @@
+<!--
+  Generated template for the OrderCommentwritePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>发布评论</ion-title>
+    <ion-buttons end padding-right *ngIf="success == 0">
+        <button (click)="sendComment()" style="background-color:#fff;color:#ff4633;font-size:1.7rem">
+          发布
+        </button> 
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-bgcolor">
+
+    <div padding-top class="">
+      </div>
+      <div padding-right padding-left class="item-border2 item-bgcolor" *ngIf="success == 0">
+              <div *ngIf="product">
+                  <ion-row justify-content-start align-items-center class="flex-nowrap border-b">
+                      <div class="product-img"><img src="{{product.img}}" alt=""></div>
+                      <div class="product">
+                        <div class="product-title">{{product.name}}</div>
+                      </div>
+                  </ion-row>
+              </div>
+
+              <div>
+                <ion-textarea [(ngModel)]="content" placeholder="商品已经收到了，快来分享一下你的使用感受吧" cols=40 rows=10 class="comment-text"></ion-textarea>
+                <div class="comment-note">不少于8个字</div>
+              </div>
+              
+    </div>
+
+    <div *ngIf="success == 1">
+        <div class="success-icon">
+            <ion-icon class="icon-font" ios="md-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+        </div>
+          <div class="success-text">评论成功！</div>
+          <ion-row padding-left padding-right justify-content-between>
+            <div class="btn-border" (click)="goorder()">返回我的订单</div>
+            <div class="btn-border" (click)="gohome()">返回首页</div>
+        </ion-row>
+    </div>
+      
+
+</ion-content>

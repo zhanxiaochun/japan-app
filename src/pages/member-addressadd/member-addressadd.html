@@ -1,0 +1,49 @@
+<!--
+  Generated template for the MemberAddressaddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-bgcolor">
+
+    <div padding class="item-border">
+        <ion-row justify-content-between>
+          <div><label>收货人:</label><input type="text" [(ngModel)]="name" placeholder="请填写真实姓名" class="item-input" #oldpass></div>
+        </ion-row>
+    </div>
+  
+    <div padding class="item-border">
+      <ion-row justify-content-between>
+        <div><label>手机号:</label><input type="text" [(ngModel)]="mobile" placeholder="" class="item-input" #pass></div>
+      </ion-row>
+  </div>
+  
+    <div padding class="item-border">
+        <ion-row justify-content-between>
+        <div><label>邮政编码:</label><input type="text" [(ngModel)]="zipcode" placeholder="" class="item-input" #repass></div>
+        </ion-row>
+    </div>
+
+    <div padding class="item-border">
+        <!-- <ion-row justify-content-between>
+        <div><label>地址:</label><input type="text" [(ngModel)]="address" placeholder="" class="item-input" #repass></div>
+        </ion-row> -->
+        <ion-textarea autosize [(ngModel)]="address" placeholder="如街道、道路、小区、楼栋号、单元楼">
+
+        </ion-textarea>
+    </div>
+  
+      <div padding>
+        <button ion-button full style="background:#ff4633;font-size:18px;margin-top:30px;" (click)="submitAdd()">保存地址</button>
+      </div>
+  
+  </ion-content>

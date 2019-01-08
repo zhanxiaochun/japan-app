@@ -1,0 +1,37 @@
+page-paysuccess {
+    .success-icon{
+        margin-top:40px;
+        margin-bottom:30px;
+        display:flex;
+        justify-content: center;
+    }
+    .icon-font{
+        font-size:60px;
+        color:#ff4633;
+    }
+    .success-text{
+        font-size:16px;
+        font-weight:600;
+        text-align:center;
+    }
+    .success-note{
+        font-size:14px;
+        text-align: center;
+        margin-top:10px;
+        color:#656565;
+        margin-bottom:20px;
+    }
+    .pay-price{
+        color:#ff4633;
+    }
+    .pay-price i{
+        font-style:normal;
+        font-size:12px;
+    }
+    .btn-border{
+        color:#656565;
+        padding:5px 30px;
+        border:1px solid #656565;
+        border-radius: 5px;
+    }
+}

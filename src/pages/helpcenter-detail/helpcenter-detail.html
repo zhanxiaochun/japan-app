@@ -1,0 +1,26 @@
+<!--
+  Generated template for the HelpcenterDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>帮助中心</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  class="content-bg" *ngIf="content">
+    <div *ngFor="let item of content">
+        <div padding class="title-font">{{item.title}}</div>
+        <!-- <div>{{item.content}}</div> -->
+        <div padding class="item-bg" [innerHTML]="assembleHTML(item.content)"></div>
+    </div>
+    
+    <!-- <div padding class="title-font">代购</div>
+    <div padding class="item-bg">什么是代购</div> -->
+
+</ion-content>

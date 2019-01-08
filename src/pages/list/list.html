@@ -1,0 +1,55 @@
+<!--
+  Generated template for the ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar style="opacity: 0.8" no-border-bottom color="danger">
+    <!-- <ion-title>优惠精选</ion-title> -->
+    <ion-searchbar style="border-radius: 20px;margin-left:10%;width:80%;" (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-4 class="menus">
+        <ion-scroll scrollY="true" style="height:100%">
+          <ion-list no-lines>
+            <ion-item button class="menuItem" *ngFor="let c of categoryleft;let i=index" [ngClass]="{'active': c.id=== parentid}" text-center (click)="getChildCategory(c.id)">
+              <!-- <div [ngClass]="{'catechecked1': c.id=== parentid}">{{c.classname}}</div> -->
+              <div [class.catechecked1]="c.id == parentid && cateid == 1" [class.catechecked2]="c.id == parentid && cateid == 2" [class.catechecked3]="c.id == parentid && cateid == 3">{{c.classname}}</div>
+              </ion-item>
+          </ion-list>
+        </ion-scroll>
+      </ion-col>
+      <ion-col class="items">
+        <ion-scroll scrollY="true" #scroll style="height:100%">
+          <!-- <ion-list no-lines>
+            <ion-item button class="menuItem" *ngFor="let c of categoryright;let i=index">
+              {{c.classname}} </ion-item>
+          </ion-list> -->
+          <div class="catelist">
+            <ion-row wrap>
+              <ion-col tappable col-4 *ngFor="let p of categoryright" (click)="goProductList(p.id)">
+                <img class="cateimg" src="{{p.imgs}}" alt=""/>
+                <div class="catename">{{p.classname}}</div>
+              </ion-col>
+            </ion-row>
+          </div>
+          <ion-row>
+            <ion-col class="nodata" text-center *ngIf="!hasmore">
+              没有商品啦 ♪(^∇^*)
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row #spinner *ngIf="hasmore">
+            <ion-col text-center>
+              <ion-spinner></ion-spinner>
+            </ion-col>
+          </ion-row> -->
+        </ion-scroll>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

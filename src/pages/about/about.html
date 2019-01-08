@@ -1,0 +1,36 @@
+<ion-header>
+  <!-- <ion-navbar> -->
+    <!-- <ion-title> -->
+      <img src="{{headimg}}" alt="">
+    <!-- </ion-title> -->
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row justify-content-between class="input-border">
+    <input type="text" [(ngModel)]="producturl" class="url-input" placeholder="请输入商品链接">
+    <div class="btn-input" (click)="getProducturl()">搜索</div>
+  </ion-row>
+
+  <div class="process-title">代购流程</div>
+  <ion-row justify-content-between>
+      <div class="circle-box">
+          <div class="circle1"><div class="circle2">1</div></div>
+          <div class="circle-content">填写运单</div>
+      </div>
+      <div class="circle-box">
+          <div class="circle1"><div class="circle2">2</div></div>
+          <div class="circle-content">等待确认</div>
+      </div>
+      <div class="circle-box">
+          <div class="circle1"><div class="circle2">3</div></div>
+          <div class="circle-content">支付费用</div>
+      </div>
+      <div class="circle-box">
+          <div class="circle1"><div class="circle2">4</div></div>
+          <div class="circle-content">国际运输</div>
+      </div>
+    </ion-row>
+
+</ion-content>

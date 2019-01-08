@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ProductListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>productList</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="product">
+        <ion-row wrap>
+          <ion-col tappable col-6 *ngFor="let p of products" (click)="goDetails(p.id)">
+            <img src="{{p.images}}" alt=""/>
+            <p>{{p.productname}}</p>
+            <ion-row class="list-price buy" justify-content-between>
+              <span class="price-new"><i>￥</i>{{p.webprice}}</span>
+              <span class="sellcount">{{p.sellcount}}人已买</span>
+              <!-- <ion-row justify-content-between>
+                  
+                      <span class="price-new"><i>￥</i>{{p.webprice}}</span>
+                  
+                  
+                      <span class="sellcount">{{p.sellcount}}</span>
+                  
+              </ion-row> -->
+            </ion-row>
+            
+          </ion-col>
+        </ion-row>
+    </div>
+
+</ion-content>

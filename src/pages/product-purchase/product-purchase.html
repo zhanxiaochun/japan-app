@@ -1,0 +1,84 @@
+<!--
+  Generated template for the ProductPurchasePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>商品详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div padding>
+        <ion-row justify-content-between class="input-border">
+            <input type="text" [(ngModel)]="url" class="url-input" placeholder="请输入商品链接">
+            <div class="btn-input" (click)="getProduct()">搜索</div>
+        </ion-row>
+    </div>
+    
+
+    <!-- <div><img src="https://www.icooder.cn/uploadfile/18/11/02/b514fb87-3adf-2ffb-0aaa-e1da45110276.jpg" alt=""></div> -->
+    <ion-slides>
+        <ion-slide *ngFor="let item of product.images">
+            <img src="{{item}}" alt="">
+        </ion-slide>
+    </ion-slides>
+
+    <div padding>
+      <ion-row justify-content-start class="mt-10">
+        <label for="" class="input-title">网址：</label>
+        <input type="text" class="input-border2" [(ngModel)] = "product.producturl" readonly="readonly">
+        <div class="ture-icon" [class.active]="product.producturl"><ion-icon name="md-checkmark-circle"></ion-icon></div>
+      </ion-row>
+      <ion-row justify-content-start class="mt-10">
+        <label for="" class="input-title">名称：</label>
+        <input type="text" class="input-border2" [(ngModel)] = "product.productname" readonly="readonly">
+        <div class="ture-icon" [class.active]="product.productname"><ion-icon name="md-checkmark-circle"></ion-icon></div>
+      </ion-row>
+    </div>
+
+    <div class="btn-footer" (click)="gobuy()">帮我买</div>
+
+    <div padding>
+        <ion-row justify-content-start class="mt-10">
+          <label for="" class="input-title">单价：</label>
+          <!-- <input type="text" class="input-border2" [(ngModel)] = "product.productprice" readonly="readonly"> -->
+          <div class="input-border2 color6"><span *ngIf="product.productprice">￥</span>{{product.productprice}}</div>
+          <div class="ture-icon" [class.active]="product.productprice"><ion-icon name="md-checkmark-circle"></ion-icon></div>
+        </ion-row>
+        <!-- <ion-row justify-content-start class="mt-10">
+          <label for="" class="input-title">运费：</label>
+          <input type="text" class="input-border2">
+          <div class="ture-icon"><ion-icon name="md-checkmark-circle"></ion-icon></div>
+        </ion-row> -->
+        <ion-row justify-content-start class="mt-10">
+            <label for="" class="input-title">数量：</label>
+            <ion-row justify-content-start class="num-row">
+              <div><ion-icon name="md-remove" class="icon-weight" (click)="reduce()"></ion-icon></div>
+              <div class="num-box">{{productnum}}</div>
+              <div><ion-icon name="md-add" class="icon-weight" (click)="plus()"></ion-icon></div>
+            </ion-row>
+        </ion-row>
+        <ion-row justify-content-start class="mt-10">
+            <label for="" class="input-title">备注：</label>
+            <textarea name="" id="" class="textarea-border" [(ngModel)] = "product.note"></textarea>
+            <div class="ture-icon"><ion-icon name="md-checkmark-circle"></ion-icon></div>
+        </ion-row>
+      </div>
+
+      <div class="text-line">
+          <span>商品详情</span>
+     </div>
+
+     <div [innerHTML]="assembleHTML(product.content)">
+      </div>
+      
+      
+
+</ion-content>

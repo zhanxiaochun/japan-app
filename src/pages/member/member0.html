@@ -1,0 +1,46 @@
+<!--
+  Generated template for the MemberPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>会员资料</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-bgcolor">
+    <div padding class="item-border">
+      <ion-row justify-content-between align-items-center>
+        <div class="member-headimg"><img src="{{member.avatar}}" alt=""></div>
+        <div style="text-align: center;">修改头像 <ion-icon name="ios-arrow-forward"></ion-icon></div>
+        </ion-row>
+    </div>
+  
+      <div padding class="item-border">
+          <ion-row justify-content-between>
+            <div>昵称</div>
+            <div class="member-text" (click)="goNickname()">{{member.nickname}} ></div>
+          </ion-row>
+
+          <ion-row justify-content-between>
+            <div>性别</div>
+            <div class="member-text">{{member.membersexName}} ></div>
+          </ion-row>
+
+          <ion-row justify-content-between>
+            <div>我的手机号</div>
+            <div class="member-text">{{member.usermobile}} ></div>
+          </ion-row>
+      </div>
+
+      <div (click)="upload()">test</div>
+
+      <div class="header-image" tappable [ngStyle]="{'background-image': 'url('+avatar+')'}" (click)="presentActionSheet()">image</div>
+      <img src="{{tmpimg}}" alt="" style="height:175px;width:375px;">
+  </ion-content>
+  

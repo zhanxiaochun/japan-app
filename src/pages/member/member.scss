@@ -1,0 +1,41 @@
+page-member {
+    .content-bgcolor{
+        background-color:#F3F3F3;
+        font-size:16px;
+    }
+    .item-bgcolor{
+        background-color:#fff;
+    }
+    .item-border{
+        background-color:#fff;
+        margin-top:2px;
+        ion-row{
+            padding-top:10px;
+            padding-bottom:10px;
+            font-family:"黑体-简";
+        }
+    }
+    .member-text{
+        color:#9D9D9D;
+    }
+
+    .member-headimg{
+        width:40px;
+        height:40px;
+        img{
+            width:40px;
+            height:40px;
+            border-radius:50%;
+        }
+    }
+
+    .header-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        background-size: cover;
+      }
+}

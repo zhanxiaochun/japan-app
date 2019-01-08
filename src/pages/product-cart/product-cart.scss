@@ -1,0 +1,145 @@
+page-product-cart {
+  .content-bgcolor {
+    background-color: #F3F3F3;
+    font-size: 14px;
+  }
+
+  .item-bgcolor {
+    background-color: #fff;
+  }
+
+  .item-border {
+    background-color: #fff;
+    margin-top: 16px;
+
+    ion-row {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-family: "黑体-简";
+    }
+  }
+
+  .item-border2 {
+    background-color: #fff;
+    padding-bottom:20px;
+    ion-row {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-family: "黑体-简";
+    }
+    margin-bottom:1px;
+  }
+
+  .flex-nowrap{
+    flex-wrap: nowrap;
+  }
+
+  .product-img {
+    width: 80px;
+    height: 80px;
+    // border: 1px solid red;
+    flex-shrink: 0;
+  }
+
+  .product {
+    height: 90px;
+    margin-left: 10px;
+    // border: 1px solid blue;
+  }
+
+  .product-title {
+    height: 40px;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    word-break: break-all;
+    font-size:13px;
+    font-weight: 600;
+  }
+  .product-attr{
+      height:20px;
+      line-height:20px;
+      color:#8C8C8C;
+      margin-top:5px;
+  }
+
+  .list-price {
+    height: 30px;
+    line-height: 20px;
+    position: relative;
+    bottom: 0;
+  }
+  .price-new {
+    font-size: 14px;
+    color: #f8285c;
+  }
+  .list-price i {
+    font-style: normal;
+    font-size: 12px;
+  }
+  .change-num{
+    margin-top:20px;
+    margin-bottom:30px;
+    font-size:17px;
+}
+    .num-input{
+    width:40px;
+    height:25px;
+    text-align: center;
+    }
+
+    .item-ios.item-block .item-inner {
+        padding-right: 8px;
+        padding-right: 8px;
+        // border-bottom: 0.55px solid #c8c7cc;
+        border:none!important;
+    }
+    .checkbox-ios .checkbox-checked {
+        border-color: #ff3633!important;
+        background-color: #ff4633!important;
+    }
+
+    .foot-box{
+      height:50px;
+      border-top:1px solid #E5E5E5;
+    }
+    .jiesuan{
+      width:120px;
+      background-color:#ff4633;
+      color:#fff;
+      line-height:50px;
+      text-align:center;
+      font-size:16px;
+      margin-left:10px;
+    }
+    .nojiesuan{
+      width:120px;
+      background-color:gray;
+      color:#fff;
+      line-height:50px;
+      text-align:center;
+      font-size:16px;
+      margin-left:10px;
+    }
+    .zongji{
+      height:30px;
+      line-height:40px;
+    }
+    .zongji i {
+      font-style: normal;
+      font-size: 12px;
+    }
+    .otherfee{
+      height:20px;
+      line-height:10px;
+      color:#6F6F6F;
+      font-size:13px;
+    }
+    .otherfee i{
+      font-style: normal;
+      font-size: 12px;
+    }
+  
+}

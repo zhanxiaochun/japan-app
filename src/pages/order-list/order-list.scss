@@ -1,0 +1,122 @@
+page-order-list {
+      .content-bgcolor {
+        background-color: #F3F3F3;
+        font-size: 14px;
+      }
+    
+      .item-bgcolor {
+        background-color: #fff;
+      }
+      .item-border {
+        background-color: #fff;
+        margin-top: 16px;
+      }
+      .color6{
+          color:#ff4633;
+      }
+
+      .address-border{
+        background-color:#fff;
+      }
+    
+      .item-border2 {
+        background-color: #fff;
+        border-bottom: 3px solid #F3F3F3;
+        // padding-bottom:20px;
+        ion-row {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-family: "黑体-简";
+        }
+        // margin-bottom:1px;
+        
+      }
+      .border-b{
+          border-bottom: 1px solid #f3f3f3;
+      }
+    
+      .flex-nowrap{
+        flex-wrap: nowrap;
+      }
+    
+      .product-img {
+        width: 80px;
+        height: 80px;
+        // border: 1px solid red;
+        flex-shrink: 0;
+      }
+    
+      .product {
+        height: 90px;
+        margin-left: 10px;
+        flex:1;
+        // border: 1px solid blue;
+      }
+    
+      .product-title {
+        height: 40px;
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        word-break: break-all;
+        font-size:13px;
+        font-weight: 600;
+      }
+      .product-attr{
+          height:20px;
+          line-height:20px;
+          color:#8C8C8C;
+          margin-top:5px;
+      }
+    
+      .list-price {
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        bottom: 0;
+        display:flex;
+        justify-content: space-between;
+      }
+      .foot-fee i{
+        font-size:14px;
+        font-style:normal;
+      }
+      .close-font{
+        font-size:14px;
+        margin-right:3px;
+      }
+      .item-price{
+        display: flex;
+        align-items: center;
+      }
+      .item-price i{
+        font-style:normal;
+        font-size:12px;
+      }
+      .price-new {
+        font-size: 14px;
+        color: #f8285c;
+      }
+      .list-price i {
+        font-style: normal;
+        font-size: 12px;
+      }
+      .cancel-btn{
+          color:#666666;
+          padding:5px 15px;
+          border:1px solid #666666;
+          border-radius: 5px;
+      }
+      .pay-btn{
+        color:#ff4633;
+        padding:5px 15px;
+        border:1px solid #ff4633;
+        border-radius: 5px;
+        margin-left:10px;
+      }
+      
+
+    
+}

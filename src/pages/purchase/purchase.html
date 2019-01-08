@@ -1,0 +1,63 @@
+<!--
+  Generated template for the PurchasePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>线下代购</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-bg" padding-top>
+  <div padding-left padding-right class="item-bg">
+    <div class="item-border fsize-16">填写商品信息</div>
+    <div class="item-border fsize-14">
+      <label>产品名称:</label><input type="text" [(ngModel)]="productname" placeholder="请填写商品名称" class="item-input" #oldpass>
+    </div>
+    <div class="item-border fsize-14">
+        <label>商品链接:</label><input type="text" [(ngModel)]="url" placeholder="请填写商品单价" class="item-input" #oldpass>
+    </div>
+    <div class="item-border fsize-14">
+        <label>预算金额:</label><input type="text" [(ngModel)]="budget" placeholder="请填写能接受的单价金额" class="item-input" #oldpass>
+    </div>
+    <!-- <div class="item-border fsize-14">
+        <label>商品单价:</label><input type="text" [(ngModel)]="price" placeholder="请填写商品单价" class="item-input" #oldpass>
+    </div> -->
+    <div class="item-border fsize-14">
+        <label>代购数量:</label><input type="text" [(ngModel)]="productnum" placeholder="请填写商品所需数量" class="item-input" #oldpass>
+    </div>
+    <div class="item-border fsize-14">
+        <label>商品类型:</label><input type="text" [(ngModel)]="productattr" placeholder="如材质/尺寸/颜色等信息" class="item-input" #oldpass>
+    </div>
+    <div class="fsize-14">
+        <label>备注信息:</label>
+        <!-- <input type="text" [(ngModel)]="companyname" placeholder="填写其他信息" class="item-input" #oldpass> -->
+        <ion-textarea class="note-textarea" [(ngModel)]="remarks" placeholder="填写其他信息"></ion-textarea>
+    </div>
+  </div>
+
+  <div padding-left padding-right margin-top class="item-bg">
+    <div class="item-border fsize-16">添加商品图片</div>
+    <ion-row wrap class="loadimg">
+        <ion-col tappable col-4 (click)="getPhoto()">
+          <div class="img-icon"><ion-icon name="add"></ion-icon></div>
+        </ion-col>
+        <ion-col tappable col-4 (click)="goDetails(p.id)">
+          <div class="img-icon"><ion-icon name="add"></ion-icon></div>
+        </ion-col>
+        <ion-col tappable col-4 (click)="goDetails()">
+          <div class="img-icon"><ion-icon name="add"></ion-icon></div>
+        </ion-col>
+    </ion-row>
+    <div class="img-note">最多可上传3张图片</div>
+  </div>
+
+  <div padding>
+    <button ion-button full style="background:#ff4633;font-size:18px;margin-top:10px;" (click)="orderSubmit()">提交订单</button>
+  </div>
+</ion-content>
