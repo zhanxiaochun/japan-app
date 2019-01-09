@@ -225,6 +225,9 @@ page-home {
         line-height:18px;
         color:#fff;
         background: #F99D35;
+        display:flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .categoryimg{
@@ -241,8 +244,8 @@ page-home {
       .head{
         color:#fff;
         // padding-top:65px;
-        height:65px;
-        padding-top:26px;
+        height:85px;
+        padding-top:46px;
       }
       .toolbar-ios {
         padding: 0px;
@@ -256,7 +259,7 @@ page-home {
         font-size:20px!important;
       }
       .search-box{
-        height:30px;width:75%;background:#fff;margin-bottom:10px;
+        height:30px;width:75%;background:#fff;margin-bottom:7px;
         border-radius: 15px;
         padding-left:15px;
         padding-right:15px;
@@ -272,4 +275,5 @@ page-home {
         color:#000;
         font-size:12px;
       }
+
 }

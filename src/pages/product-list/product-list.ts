@@ -21,9 +21,16 @@ export class ProductListPage {
   products: Array<any> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
+    let aa = navParams.get('product');
+    console.log(aa);
     this.cateid = navParams.get('cateid');
     console.log(this.cateid);
-    this.getProductList(this.cateid);
+    if(aa == undefined){
+      this.getProductList(this.cateid);
+    }else{
+      this.products = aa;
+    }
+    
   }
 
   // 获取列表

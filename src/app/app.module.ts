@@ -10,6 +10,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 
+
 // import { AboutPage } from '../pages/about/about';
 // import { ContactPage } from '../pages/contact/contact';
 // import { HomePage } from '../pages/home/home';
@@ -50,6 +51,7 @@ import { HelpcenterPageModule } from '../pages/helpcenter/helpcenter.module';
 import { HelpcenterDetailPageModule } from '../pages/helpcenter-detail/helpcenter-detail.module';
 import { ProductPurchasePageModule } from '../pages/product-purchase/product-purchase.module';
 import { ProductPurchase2orderPageModule } from '../pages/product-purchase2order/product-purchase2order.module';
+import { ProductSearchPageModule } from '../pages/product-search/product-search.module';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,7 @@ import { ProductPurchase2orderPageModule } from '../pages/product-purchase2order
     HelpcenterDetailPageModule,
     ProductPurchasePageModule,
     ProductPurchase2orderPageModule,
+    ProductSearchPageModule,
     // IonicModule.forRoot(MyApp), // 隐藏子页面tabs
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: 'true',

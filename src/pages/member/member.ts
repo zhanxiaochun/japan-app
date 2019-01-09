@@ -51,7 +51,7 @@ export class MemberPage {
       console.log(rs);
       if(rs.code == 200){
         this.member = rs.data;
-        this.member['avatar'] = 'https://www.icooder.cn/static/images/member/default_face.png';
+        // this.member['avatar'] = 'https://www.icooder.cn/static/images/member/default_face.png';
       }else{
         console.log('获取信息失败');
       }
@@ -145,7 +145,6 @@ export class MemberPage {
       }
     // alert(temp)
     this.path = temp;
-    
     this.upload();
     }, (err) => {
       alert('ERROR:' + err);//错误：无法从手机相册中选择图片！
@@ -160,6 +159,7 @@ export class MemberPage {
   
  upload() {
     const apiPath = "https://www.icooder.cn/uploadapi/image";
+    // const apiPath = AppGlobal.API.uploadImg;
   
     let options: FileUploadOptions = {
       fileKey: 'file',
@@ -173,16 +173,18 @@ export class MemberPage {
   
   this.fileTransfer.upload(this.path, apiPath, options)
   .then((data) => {
-    alert(JSON.stringify(data['response']));
+    alert(JSON.stringify(data));
     let rsdata = JSON.parse(data['response']);
-    alert(rsdata['msg']);
+    // alert(rsdata['msg']);
     
     if(rsdata['code'] == 200){
       
       this.member['avatar'] = rsdata['data']['data']['path'];
       this.updatehead(rsdata['data']['data']['path']);
+      alert(rsdata['data']['data']['path']);
     }else{
-      alert(JSON.stringify(data)+'ss');
+      // alert(JSON.stringify(data)+'ss');
+      this.appService.alert('上传图片失败');
     }
   }, (err) => {
     alert(err.error)
@@ -201,7 +203,10 @@ export class MemberPage {
       icon: imgpath
     }
     this.appService.httpPost(AppGlobal.API.memberUpdate, params, rs=>{
-      alert(rs.code);
+      // alert(rs.code);
+      if(rs.code == 200){
+        this.appService.alert('修改成功');
+      }
     })
   }
 

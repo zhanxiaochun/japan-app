@@ -5,6 +5,8 @@ import { AppService, AppGlobal } from './../../app/app.service';
 import { ListPage } from '../list/list';
 import { ProductDetailPage } from '../product-detail/product-detail';
 import { ProductCartPage } from '../product-cart/product-cart';
+import { StatusBar } from '@ionic-native/status-bar';
+import { ProductSearchPage } from '../product-search/product-search';
 
 @IonicPage()
 @Component({
@@ -29,7 +31,9 @@ export class HomePage {
   token: string;
 
 
-  constructor(public appService: AppService,public navCtrl: NavController) {
+  constructor(public appService: AppService,public navCtrl: NavController, private statusBar: StatusBar) {
+    this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#ff4633');
     this.category = [
       {id: 3, url: '../../assets/imgs/cate3.png', title: '亚马逊'},
       {id: 2, url: '../../assets/imgs/cate2.png', title: '乐天'},
@@ -47,8 +51,9 @@ export class HomePage {
 
   // 提取token
   ionViewWillEnter(){
-    this.token=window.localStorage.getItem('token');
-    console.log(this.token);
+    // this.token=window.localStorage.getItem('token');
+    // console.log(this.token);
+    
   }
 
 
@@ -149,6 +154,11 @@ export class HomePage {
   // 购物车
   goCart(){
     this.navCtrl.push(ProductCartPage);
+  }
+
+  // 搜索
+  search(){
+    this.navCtrl.push(ProductSearchPage);
   }
 
 

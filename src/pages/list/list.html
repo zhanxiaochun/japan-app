@@ -5,9 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar style="opacity: 0.8" no-border-bottom color="danger">
-    <!-- <ion-title>优惠精选</ion-title> -->
-    <ion-searchbar style="border-radius: 20px;margin-left:10%;width:80%;" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-navbar no-border-bottom  color="" style="margin-top:20px;">
+    <div style="background: #fff;" class="head">
+      <ion-row justify-content-between padding-left padding-right>
+          <div><ion-icon class="iconfont ml-10" style="font-size:22px!important;visibility: hidden;">&#xe616;</ion-icon></div>
+          <div class="search-box"><ion-icon name="search" style="font-size:20px!important;color:#999999;padding-left:0px;"></ion-icon><input type="text" class="search-input"></div>
+          <div (click)="goCart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
+      </ion-row>
+    </div>
   </ion-navbar>
 </ion-header>
 <ion-content fullscreen>

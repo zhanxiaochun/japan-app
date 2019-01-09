@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppService, AppGlobal } from '../../app/app.service';
 import { ProductListPage } from '../product-list/product-list';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /**
  * Generated class for the ListPage page.
@@ -32,7 +33,9 @@ export class ListPage {
 
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, private statusBar: StatusBar) {
+    this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#fff');
     this.cateid = this.navParams.get('cateid');
     if(this.cateid == undefined){
       this.cateid = 1;

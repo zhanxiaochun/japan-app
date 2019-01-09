@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar style="margin-top:20px;">
     <ion-title>商品详情</ion-title>
   </ion-navbar>
 
@@ -24,7 +24,7 @@
     
 
     <!-- <div><img src="https://www.icooder.cn/uploadfile/18/11/02/b514fb87-3adf-2ffb-0aaa-e1da45110276.jpg" alt=""></div> -->
-    <ion-slides>
+    <ion-slides *ngIf="product.images">
         <ion-slide *ngFor="let item of product.images">
             <img src="{{item}}" alt="">
         </ion-slide>

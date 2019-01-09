@@ -11,6 +11,7 @@ import { OrderTranslistPage } from '../order-translist/order-translist';
 import { PurchasePage } from '../purchase/purchase';
 import { OrderPurchasePage } from '../order-purchase/order-purchase';
 import { HelpcenterPage } from '../helpcenter/helpcenter';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @IonicPage()
 @Component({
@@ -22,10 +23,14 @@ export class ContactPage {
   token: string;
   member: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public appService: AppService) {
+  constructor(public navCtrl: NavController, public appService: AppService, private statusBar: StatusBar) {
+    this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#ff4633');
     this.ionViewWillEnter();
     this.getMenberInfo();
   }
+
+  
 
   login(){
     console.log('login');

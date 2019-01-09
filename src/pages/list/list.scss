@@ -6,6 +6,7 @@ page-list {
     ion-scroll {
       // background-color: #efefef;
       background-color: #fff;
+      border-right:1px solid #EEEEEE;
     }
   }
   .items {
@@ -71,9 +72,6 @@ page-list {
     }
   }
 
-  .catelist{
-    
-  }
   .cateimg{
     width:73px;
     height:73px;
@@ -81,5 +79,34 @@ page-list {
   .catename{
     text-align:center;
   }
+
+  .search-box{
+    height:30px;width:75%;background:#fff;margin-bottom:7px;
+    border-radius: 15px;
+    padding-left:15px;
+    padding-right:15px;
+    border:none;
+    color:#000;
+    display:flex;
+    align-items: center;
+    border:1px solid #ff4633;
+  }
+  .search-input{
+    width:80%;
+    border:none;
+    height:28px;
+    color:#000;
+    font-size:12px;
+  }
+  .head{
+    color:#333333;
+    // padding-top:65px;
+    // height:65px;
+    // padding-top:26px;
+  }
+  .icon{
+    padding:5px;
+  }
+
 
 }

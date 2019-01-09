@@ -94,6 +94,8 @@ export class AppGlobal {
         getArticle: '/articleapi/get',
         // 创建代购订单
         createPurchaseOrder: '/orderapi/purchase',
+        // 上传图片
+        uploadImg: '/uploadapi/image',
     };
 }
 

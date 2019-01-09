@@ -1,11 +1,11 @@
 
 <ion-header>
-    <ion-navbar color="danger">
-        <div style="background: linear-gradient(to right, #FF4633, #FF7454);" class="head">
+    <ion-navbar color="mybg">
+        <div style="background: #ff4633;" class="head">
           <!-- <div style="height:30px;width:70%;background:#fff;margin-bottom:10px;"></div> -->
           <ion-row justify-content-between padding-left padding-right>
               <div><ion-icon class="iconfont ml-10" style="font-size:22px!important;visibility: hidden;">&#xe616;</ion-icon></div>
-              <div class="search-box"><ion-icon name="search" style="font-size:20px!important;color:#999999;padding-left:0px;"></ion-icon><input type="text" class="search-input"></div>
+              <div class="search-box"><ion-icon name="search" style="font-size:20px!important;color:#999999;padding-left:0px;"></ion-icon><input type="text" class="search-input" (click)="search()"></div>
               <!-- <input type="text" class="search-box"> -->
               <div (click)="goCart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
           </ion-row>
@@ -27,10 +27,10 @@
       </ion-col>
     </ion-row>
   
-    <ion-slides>
+    <ion-slides *ngIf="slides.length > 1" loop="true" slidesPerView="auto" pager="true">
       <ion-slide *ngFor="let item of slides">
           <!-- <img src="http://www.jj.com/uploadfile/{{item.adfile}}" alt="" style="height:175px;width:375px;"> -->
-          <img src="{{item.url}}" alt="" style="height:175px;width:375px;">
+          <img src="{{item.url}}" alt="" style="height:200px;width:100%;">
         <!-- <div class="cover"></div>
         <span class="title">{{item.Title}}</span> -->
       </ion-slide>
