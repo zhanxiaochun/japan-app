@@ -7,13 +7,48 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>productList</ion-title>
+    <!-- <ion-title>productList</ion-title> -->
+    <div class="my-title">
+        <div class="search-border">
+            <ion-icon name="search" class="search-icon"></ion-icon>
+            <input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" (click)="search()">
+        </div>
+    </div>
+    
+    <ion-buttons end>
+      <!-- <button class="search-btn" (click)="searchproduct()">搜索</button> -->
+      <div (click)="goCart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="content-bg">
+
+    <div class="top-row">
+      <ion-row justify-content-between>
+        <!-- <ion-col text-center tappable col-3>综合</ion-col>
+        <ion-col text-center tappable col-3>综合</ion-col>
+        <ion-col text-center tappable col-3>综合</ion-col>
+        <ion-col text-center tappable col-3>综合</ion-col> -->
+        <div class="top-item" [class.active]="active == 'default'" (click)="getSelect('default')">综合</div>
+        <div class="top-item" (click)="getSelect('sale')" [class.active]="active == 'sale'">销量</div>
+        <div class="top-item" (click)="getSelect('price')">
+          <!-- 价格<span><ion-icon class="iconfont ml-10" style="font-size:12px!important;">&#xe61c;</ion-icon></span> -->
+          <ion-row justify-content-center>
+            <div [class.active]="active == 'price'">价格 </div>
+            <div>
+              <!-- <ion-icon style="display:block;" class="iconfont ml-10" style="font-size:12px!important;">&#xe61c;</ion-icon>
+              <ion-icon style="display:block;" class="iconfont ml-10" style="font-size:12px!important;">&#xe61c;</ion-icon> -->
+              <div class="icon-price icon-up" [class.active]="(priceorder == 'price-desc') && (active == 'price')"><ion-icon class="iconfont ifont-up">&#xe61c;</ion-icon></div>
+              <div class="icon-price icon-down" [class.active]="(priceorder == 'price-asc') && (active == 'price')"><ion-icon class="iconfont ifont-down">&#xe61e;</ion-icon></div>
+            </div>
+          </ion-row>
+        </div>
+        <div class="top-item">筛选<ion-icon name="ios-funnel-outline" style="font-size:16px;color:#999999;"></ion-icon></div>
+      </ion-row>
+    </div>
 
     <div class="product">
         <ion-row wrap>

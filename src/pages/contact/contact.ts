@@ -12,6 +12,8 @@ import { PurchasePage } from '../purchase/purchase';
 import { OrderPurchasePage } from '../order-purchase/order-purchase';
 import { HelpcenterPage } from '../helpcenter/helpcenter';
 import { StatusBar } from '@ionic-native/status-bar';
+import { RechargePage } from '../recharge/recharge';
+import { WithdrawPage } from '../withdraw/withdraw';
 
 @IonicPage()
 @Component({
@@ -24,8 +26,7 @@ export class ContactPage {
   member: Array<any> = [];
 
   constructor(public navCtrl: NavController, public appService: AppService, private statusBar: StatusBar) {
-    this.statusBar.overlaysWebView(true);
-    this.statusBar.backgroundColorByHexString('#ff4633');
+    this.token = this.appService.getToken();
     this.ionViewWillEnter();
     this.getMenberInfo();
   }
@@ -42,10 +43,13 @@ export class ContactPage {
     this.navCtrl.push(RegisterPage);
   }
 
-  // 提取token
+  
   ionViewWillEnter(){
-    this.token=window.localStorage.getItem('token');
-    console.log(this.token);
+    // this.token=window.localStorage.getItem('token');
+    // console.log(this.token);
+    this.statusBar.styleBlackOpaque();
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#ff4633');
   }
 
   // 获取会员信息
@@ -111,6 +115,16 @@ export class ContactPage {
   // 帮助中心
   helpCenter(){
     this.navCtrl.push(HelpcenterPage);
+  }
+
+  // 充值
+  goRecharge(){
+    this.navCtrl.push(RechargePage);
+  }
+
+  // 提现
+  goWithdraw(){
+    this.navCtrl.push(WithdrawPage);
   }
 
 }

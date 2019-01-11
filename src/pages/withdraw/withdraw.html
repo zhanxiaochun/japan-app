@@ -1,0 +1,54 @@
+<!--
+  Generated template for the WithdrawPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>提现</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-bg">
+
+    
+    
+    <div padding>提现到</div>
+  
+    <div padding class="item-bg">
+      <ion-row justify-content-between align-items-center>
+          <div class="item-center"><ion-icon padding-right class="iconfont ali-icon">&#xe702;</ion-icon>支付宝</div>
+          <ion-item style="width:50px;flex-shrink: 0">
+              <!-- <ion-label>Cucumber</ion-label> -->
+                <ion-checkbox [(ngModel)]="alipay"></ion-checkbox>
+          </ion-item>
+      </ion-row>
+      <ion-row justify-content-between align-items-center>
+          <div class="item-center"><ion-icon padding-right class="iconfont wechat-icon">&#xe626;</ion-icon>微信</div>
+          <ion-item style="width:50px;flex-shrink: 0">
+              <!-- <ion-label>亚马逊商城</ion-label> -->
+              <ion-checkbox [(ngModel)]="wechatpay"></ion-checkbox>
+          </ion-item>
+      </ion-row>
+    </div>
+
+    <div padding class="rechargenum-box item-bg">
+        <div>充值金额</div>
+        <div padding-top class="num-box">
+          <label for="">￥</label>
+          <input type="text" class="input-border">
+        </div>
+    </div>
+
+    <div padding-left padding-right class="withdraw-note item-bg">可提现余额：{{coin}}{{balance}}</div>
+  
+    <div padding>
+        <button ion-button full style="background:#ff4633;margin-top:30px;" (click)="rechargenow()">立即提现</button>
+      </div>
+  
+  </ion-content>
+  

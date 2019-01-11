@@ -8,10 +8,11 @@
 
   <ion-navbar>
     <ion-title>商品详情页</ion-title>
-    <ion-buttons end padding-right>
-        <button (click)="gocart()" style="background-color:#fff;">
+    <ion-buttons end>
+        <!-- <button (click)="gocart()" style="background-color:#fff;">
           <ion-icon name="ios-cart-outline" style="font-size:20px;"></ion-icon>
-        </button> 
+        </button>  -->
+        <div (click)="gocart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
     </ion-buttons>
   </ion-navbar>
 
@@ -63,8 +64,22 @@
             </div>
           </ion-list>
         
-          <ion-list *ngSwitchCase="'comment'">
-            评价内容
+          <ion-list *ngSwitchCase="'comment'" class="comment-box">
+            <div  class="comment-item" *ngFor="let item of comment">
+              <div padding>
+                <div class="comment-user">
+                    <ion-row justify-content-start align-items-center>
+                        <div class="head-img"><img src="{{item.icon}}" alt=""></div>
+                        <div>{{item.nickname}}</div>
+                    </ion-row>
+                </div>
+                <div padding-top padding-bottom class="comment-content">{{item.content}}</div>
+                <ion-row justify-content-between class="color9">
+                  <div>{{item.addtime}}</div>
+                  <div *ngIf="item.property != false">{{item.property}}</div>
+                </ion-row>
+              </div>
+            </div>
           </ion-list>
         </div>
         
@@ -77,7 +92,8 @@
 
 <ion-footer>
   <ion-row class="product-btn" justify-content-between>
+    <!-- <div class="btn-right">立即购买</div> -->
+    <div></div>
     <div class="btn-left" (click)="addcart()">加入购物车</div>
-    <div class="btn-right">立即购买</div>
   </ion-row>
 </ion-footer>

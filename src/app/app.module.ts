@@ -52,6 +52,8 @@ import { HelpcenterDetailPageModule } from '../pages/helpcenter-detail/helpcente
 import { ProductPurchasePageModule } from '../pages/product-purchase/product-purchase.module';
 import { ProductPurchase2orderPageModule } from '../pages/product-purchase2order/product-purchase2order.module';
 import { ProductSearchPageModule } from '../pages/product-search/product-search.module';
+import { RechargePageModule } from '../pages/recharge/recharge.module';
+import { WithdrawPageModule } from '../pages/withdraw/withdraw.module';
 
 @NgModule({
   declarations: [
@@ -95,10 +97,14 @@ import { ProductSearchPageModule } from '../pages/product-search/product-search.
     ProductPurchasePageModule,
     ProductPurchase2orderPageModule,
     ProductSearchPageModule,
+    RechargePageModule,
+    WithdrawPageModule,
     // IonicModule.forRoot(MyApp), // 隐藏子页面tabs
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: 'true',
-      // backButtonText: '返回'
+      backButtonText: '',
+      iconModul: 'ios',
+      mode: 'ios',
     })
   ],
   bootstrap: [IonicApp],

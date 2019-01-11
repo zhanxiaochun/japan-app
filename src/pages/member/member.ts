@@ -32,14 +32,14 @@ export class MemberPage {
   fileTransfer: FileTransferObject = this.transfer.create();
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public actionSheetCtrl: ActionSheetController, private camera: Camera, private transfer: FileTransfer, private imagePicker: ImagePicker) {
-    this.ionViewWillEnter();
+    this.token = this.appService.getToken();
     this.getMemberInfo();
   }
 
   // 提取token
   ionViewWillEnter(){
-    this.token=window.localStorage.getItem('token');
-    console.log(this.token);
+    // this.token=window.localStorage.getItem('token');
+    // console.log(this.token);
   }
 
   // 获取用户信息

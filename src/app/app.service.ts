@@ -96,6 +96,8 @@ export class AppGlobal {
         createPurchaseOrder: '/orderapi/purchase',
         // 上传图片
         uploadImg: '/uploadapi/image',
+        // 充值
+        recharge: '/rechargeapi/apply',
     };
 }
 
@@ -234,6 +236,7 @@ export class AppService {
             message: message,
             duration: 2000,
             dismissOnPageChange: true,
+            position: 'middle'
         });
         toast.present();
         if (callback) {

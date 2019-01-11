@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, Events, App } from 'ionic-angular';
+import { AppService, AppGlobal } from './../../app/app.service';
 
 /**
  * Generated class for the ProductAttrPage page.
@@ -24,7 +25,7 @@ export class ProductAttrPage {
   propertyexid: string; // 属性id
   productnum: number; // 数量
   attrSelect: Array<any> = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public events: Events) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public events: Events, private appService: AppService) {
     this.product = this.navParams.get('product');
     this.product2 = this.navParams.get('product');
     this.productAttr = this.product['property'];
@@ -40,6 +41,7 @@ export class ProductAttrPage {
       
       for(let j = 0; j < this.productAttr[i]['attrValueList'].length; j++){
         let iskeys = this.checkAttrKey(this.attrData, this.productAttr[i]['attrValueList'][j]['attrKey']['propertyname']);
+        console.log(iskeys);
         // 数组中没有该属性
         if(iskeys >= 0){
           // 判断是否存在
@@ -145,12 +147,16 @@ export class ProductAttrPage {
 
   // 确定选择
   makesure(){
-    // console.log(this);
+    // console.log(this.productAttr);
+    if((this.productAttr.length > 0) && (this.propertyexid == '')){
+      this.appService.toast('请选择商品属性');return;
+    }
     let params = {
       propertyexid: this.propertyexid,
       amount: this.productnum,
       select: this.attrSelect,
     }
+    console.log(params);
     this.navCtrl.pop().then(()=>{
       this.events.publish('attr',params);
     })

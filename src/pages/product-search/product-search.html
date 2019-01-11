@@ -7,17 +7,16 @@
 <ion-header>
 
   <ion-navbar class="statusbar">
-    <!-- <ion-title>product-search</ion-title> -->
-    <div class="search-border">
-      <ion-icon name="search" class="search-icon"></ion-icon>
-      <input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" autofocus="autofocus">
+    <div class="my-title">
+        <div class="search-border">
+            <ion-icon name="search" class="search-icon"></ion-icon>
+            <input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" autofocus="autofocus">
+          </div>
     </div>
-    <ion-buttons end padding-right style="width:50px;">
-      <!-- <button (click)="gocart()" style="background-color:#fff;">
-        <ion-icon name="ios-cart-outline" style="font-size:20px;"></ion-icon>
-      </button>  -->
-      <button class="search-btn" (click)="searchproduct()">搜索</button>
-  </ion-buttons>
+    <ion-buttons end>
+      <!-- <button class="search-btn" (click)="searchproduct()">搜索</button> -->
+      <div (click)="searchproduct()">搜索</div>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -32,7 +31,7 @@
     </ion-row>
     <ion-row justify-content-start>
       <div *ngFor="let item of searcharr">
-          <div class="list-item">{{item}}</div>
+          <div class="list-item" (click)="searchitem(item)">{{item}}</div>
       </div>
     </ion-row>
   </div>

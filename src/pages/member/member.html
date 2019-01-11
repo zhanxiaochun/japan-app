@@ -17,24 +17,24 @@
     <div padding class="item-border">
       <ion-row justify-content-between align-items-center>
         <div class="member-headimg"><img src="{{member.icon}}" alt=""></div>
-        <div style="text-align: center;" (click)="presentActionSheet()">修改头像 <ion-icon name="ios-arrow-forward"></ion-icon></div>
+        <div class="text-icon" (click)="presentActionSheet()">修改头像 <ion-icon name="ios-arrow-forward"></ion-icon></div>
         </ion-row>
     </div>
   
       <div padding class="item-border">
           <ion-row justify-content-between>
             <div>昵称</div>
-            <div class="member-text" (click)="goNickname()">{{member.nickname}} ></div>
+            <div class="member-text text-icon" (click)="goNickname()">{{member.nickname}} <ion-icon name="ios-arrow-forward"></ion-icon></div>
           </ion-row>
 
           <ion-row justify-content-between>
             <div>性别</div>
-            <div class="member-text">{{member.membersexName}} ></div>
+            <div class="member-text text-icon">{{member.membersexName}} <ion-icon name="ios-arrow-forward"></ion-icon></div>
           </ion-row>
 
           <ion-row justify-content-between>
             <div>我的手机号</div>
-            <div class="member-text">{{member.usermobile}} ></div>
+            <div class="member-text text-icon">{{member.usermobile}} <ion-icon name="ios-arrow-forward"></ion-icon></div>
           </ion-row>
       </div>
 

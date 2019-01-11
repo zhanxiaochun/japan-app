@@ -8,6 +8,7 @@ import { ProductCartPage } from '../product-cart/product-cart';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ProductSearchPage } from '../product-search/product-search';
 
+
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -32,11 +33,15 @@ export class HomePage {
 
 
   constructor(public appService: AppService,public navCtrl: NavController, private statusBar: StatusBar) {
-    this.statusBar.overlaysWebView(true);
-    this.statusBar.backgroundColorByHexString('#ff4633');
+    // platform.ready().then(()=>{
+    //   statusBar.styleLightContent();
+    //   statusBar.overlaysWebView(false);
+    //   statusBar.backgroundColorByHexString('#ff4633');
+    // })
+    
     this.category = [
-      {id: 3, url: '../../assets/imgs/cate3.png', title: '亚马逊'},
-      {id: 2, url: '../../assets/imgs/cate2.png', title: '乐天'},
+      {id: 2, url: '../../assets/imgs/cate3.png', title: '亚马逊'},
+      {id: 3, url: '../../assets/imgs/cate2.png', title: '乐天'},
       {id: 1, url: '../../assets/imgs/cate1.png', title: '商城'}
     ];
     this.getSlides();
@@ -53,6 +58,11 @@ export class HomePage {
   ionViewWillEnter(){
     // this.token=window.localStorage.getItem('token');
     // console.log(this.token);
+    // this.platform.ready().then(()=>{
+      this.statusBar.styleLightContent();
+      this.statusBar.overlaysWebView(false);
+      this.statusBar.backgroundColorByHexString('#ff4633');
+    // })
     
   }
 

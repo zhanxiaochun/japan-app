@@ -39,6 +39,7 @@ export class ProductDetailPage {
         this.selectTitle += val.attrKey+":"+val.attrVal+'  ';
       });
       this.selectTitle += ' X'+ data.amount;
+      this.addcart();
     })
   }
 
@@ -66,7 +67,10 @@ export class ProductDetailPage {
       page: 1
     }
     this.appService.httpGet(AppGlobal.API.getComment, params, rs=>{
-      this.comment = rs.data;
+      if(rs.code == 200){
+        this.comment = rs.data;
+      }
+      
       console.log(this.comment);
     })
   }
@@ -79,16 +83,26 @@ export class ProductDetailPage {
 
   // 加入购物车
   addcart(){
-    let params = {
-      token: this.token,
-      type: this.product['type'],
-      productid: this.product['id'],
-      amount: this.attr['amount'],
-      propertyexid: this.attr['propertyexid'],
+    // console.log(this.attr['amount']);return;
+    // this.presentProfileModal();
+    if(this.attr['amount'] > 0){
+      let params = {
+        token: this.token,
+        type: this.product['type'],
+        productid: this.product['id'],
+        amount: this.attr['amount'],
+        propertyexid: this.attr['propertyexid'],
+      }
+      this.appService.httpPost(AppGlobal.API.addcart, params, rs=>{
+        console.log(rs);
+        if(rs.code == 200){
+          this.appService.toast('加入购物车成功');
+        }
+      })
+    }else{
+      this.presentProfileModal();
     }
-    this.appService.httpPost(AppGlobal.API.addcart, params, rs=>{
-      console.log(rs);
-    })
+    
   }
 
   // 跳转购物车

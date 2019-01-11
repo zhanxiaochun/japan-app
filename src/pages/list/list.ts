@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppService, AppGlobal } from '../../app/app.service';
 import { ProductListPage } from '../product-list/product-list';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ProductSearchPage } from '../product-search/product-search';
 
 /**
  * Generated class for the ListPage page.
@@ -34,8 +35,7 @@ export class ListPage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, private statusBar: StatusBar) {
-    this.statusBar.overlaysWebView(true);
-    this.statusBar.backgroundColorByHexString('#fff');
+    
     this.cateid = this.navParams.get('cateid');
     if(this.cateid == undefined){
       this.cateid = 1;
@@ -72,13 +72,36 @@ export class ListPage {
 
   // 跳转到商品列表页
   goProductList(cid){
+    let params = {
+      type: this.cateid,
+      category: cid,
+      search: '',
+      order: 'default',
+      page: 1
+    }
     this.navCtrl.push(ProductListPage, {
-      cateid: cid
+      // cateid: cid
+      param: params
     });
+  }
+
+  // 搜索
+  search(){
+    this.navCtrl.push(ProductSearchPage);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListPage');
+    // this.statusBar.styleDefault();
+    this.statusBar.styleLightContent();
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#999');
+  }
+
+  ionViewWillEnter(){
+    this.statusBar.styleLightContent();
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#999');
   }
 
 }

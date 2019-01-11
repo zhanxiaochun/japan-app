@@ -37,5 +37,14 @@ page-member {
         margin-left: auto;
         margin-right: auto;
         background-size: cover;
-      }
+    }
+    .text-icon{
+        display: flex;
+        align-items: center;
+        color:#999999;
+        ion-icon{
+            margin-left:10px;
+        }
+    }
+    
 }

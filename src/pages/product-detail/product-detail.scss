@@ -56,4 +56,28 @@ page-product-detail {
         color:#ff4633!important;
         background-color:#fff!important;
       }
+
+      .comment-box{
+          background:#F3F3F3;
+          padding-top:5px;
+      }
+      .comment-item{
+          background: #fff;
+          margin-top:5px;
+      }
+      .head-img{
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        background:#fff;
+        margin-right:10px;
+        img{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+        }
+      }
+      .color9{
+          color:#999999;
+      }
 }

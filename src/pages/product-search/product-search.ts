@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
 import { AppService, AppGlobal } from '../../app/app.service';
 import { ProductListPage } from '../product-list/product-list';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /**
  * Generated class for the ProductSearchPage page.
@@ -21,12 +22,9 @@ export class ProductSearchPage {
   searchstr: String;
   searcharr: Array<any> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private appService: AppService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private appService: AppService, private statusBar: StatusBar) {
+    
     this.getsearch();
-   if(this.searchstr != null){
-     this.searcharr = this.searchstr.split('##');
-   }
-   console.log(this.searchstr);
   }
 
   // 搜索
@@ -41,7 +39,7 @@ export class ProductSearchPage {
     this.appService.httpGet(AppGlobal.API.getProducts, params, rs=>{
       console.log(rs);
       if(rs.code == 200){
-        // 将缓存搜索转为数组
+        // 判断是否有缓存
         if(this.searchstr != null){
           // 如果搜索超过50个，则删除之前的
           for(let i = 0; i < this.searcharr.length; i++){
@@ -50,13 +48,35 @@ export class ProductSearchPage {
             }
           }
           this.searcharr.push(this.searchinfo);
-          console.log(this.searchinfo);
-          console.log(this.searcharr);
-          this.getsearch();
+        }else{
+          this.searcharr[0] = this.searchinfo;
         }
+
         window.localStorage.setItem('search',this.searcharr.join('##'));
+        this.getsearch();
         this.navCtrl.push(ProductListPage, {
-          product: rs.data
+          product: rs.data,
+          param: params
+        })
+      }
+    })
+  }
+
+  // 点击缓存记录搜索
+  searchitem(str){
+    let params = {
+      type: '',
+      category: '',
+      search: str,
+      order: '',
+      page: 1,
+    }
+    this.appService.httpGet(AppGlobal.API.getProducts, params, rs=>{
+      if(rs.code == 200){
+        this.searchinfo = str;
+        this.navCtrl.push(ProductListPage, {
+          product: rs.data,
+          param: params
         })
       }
     })
@@ -65,17 +85,33 @@ export class ProductSearchPage {
   // 获取缓存的搜索信息
   getsearch(){
     this.searchstr =  window.localStorage.getItem('search');
+    console.log(this.searchstr);
+    if(this.searchstr != null){
+      this.searcharr = this.searchstr.split('##');
+    }
   }
 
   // 清除缓存
   clearsearch(){
-    console.log('ss');
     window.localStorage.removeItem('search');
     this.getsearch();
+    this.searcharr = [];
   }
+
+
+  @ViewChild(Navbar) navBar: Navbar;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductSearchPage');
+    this.navBar.backButtonClick = this.backButtonClick;
+    this.statusBar.styleLightContent();
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#999');
+  }
+
+  backButtonClick = (e: UIEvent) => {
+    // do something
+    this.navCtrl.popToRoot();
   }
 
 }

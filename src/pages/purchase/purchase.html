@@ -44,13 +44,13 @@
   <div padding-left padding-right margin-top class="item-bg">
     <div class="item-border fsize-16">添加商品图片</div>
     <ion-row wrap class="loadimg">
-        <ion-col tappable col-4 (click)="getPhoto()">
+        <ion-col tappable col-4 (click)="presentActionSheet()">
           <div class="img-icon"><ion-icon name="add"></ion-icon></div>
         </ion-col>
-        <ion-col tappable col-4 (click)="goDetails(p.id)">
+        <ion-col tappable col-4 (click)="presentActionSheet()">
           <div class="img-icon"><ion-icon name="add"></ion-icon></div>
         </ion-col>
-        <ion-col tappable col-4 (click)="goDetails()">
+        <ion-col tappable col-4 (click)="presentActionSheet()">
           <div class="img-icon"><ion-icon name="add"></ion-icon></div>
         </ion-col>
     </ion-row>
