@@ -14,6 +14,19 @@
 
 
 <ion-content class="content-bg" padding-top>
+  <div class="fsize-14 item-bg address-border" padding>
+      <ion-row justify-content-between>
+          <div style="width:90%;">
+              <ion-row justify-content-between>
+                <div>{{raddress.name}}</div>
+                <div>{{raddress.mobile}}</div>
+              </ion-row>
+              <div>{{raddress.address}}</div>
+          </div>
+          <div class="icon-box" (click)="manageAddress()"><ion-icon name="arrow-forward"></ion-icon></div>
+      </ion-row>
+  </div>
+    
   <div padding-left padding-right class="item-bg">
     <div class="item-border fsize-16">填写商品信息</div>
     <div class="item-border fsize-14">
@@ -44,14 +57,30 @@
   <div padding-left padding-right margin-top class="item-bg">
     <div class="item-border fsize-16">添加商品图片</div>
     <ion-row wrap class="loadimg">
-        <ion-col tappable col-4 (click)="presentActionSheet()">
-          <div class="img-icon"><ion-icon name="add"></ion-icon></div>
+        <ion-col tappable col-4>
+            <div *ngIf="imgArr[0];else noimg1">
+                <div class="img-box"><img src="{{imgArr[0]}}" alt=""></div>
+            </div>
+            <ng-template #noimg1>
+                <div class="img-icon" (click)="presentActionSheet()"><ion-icon name="add"></ion-icon></div>
+            </ng-template>
+          
         </ion-col>
-        <ion-col tappable col-4 (click)="presentActionSheet()">
-          <div class="img-icon"><ion-icon name="add"></ion-icon></div>
+        <ion-col tappable col-4>
+            <div *ngIf="imgArr[1];else noimg2">
+                <div class="img-box"><img src="{{imgArr[1]}}" alt=""></div>
+              </div>
+              <ng-template #noimg2>
+                  <div class="img-icon" (click)="presentActionSheet()"><ion-icon name="add"></ion-icon></div>
+              </ng-template>
         </ion-col>
-        <ion-col tappable col-4 (click)="presentActionSheet()">
-          <div class="img-icon"><ion-icon name="add"></ion-icon></div>
+        <ion-col tappable col-4>
+            <div *ngIf="imgArr[2];else noimg3">
+                <div class="img-box"><img src="{{imgArr[2]}}" alt=""></div>
+              </div>
+              <ng-template #noimg3>
+                  <div class="img-icon" (click)="presentActionSheet()"><ion-icon name="add"></ion-icon></div>
+              </ng-template>
         </ion-col>
     </ion-row>
     <div class="img-note">最多可上传3张图片</div>

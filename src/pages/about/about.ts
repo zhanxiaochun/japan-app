@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { AppService, AppGlobal } from '../../app/app.service';
 import { ProductPurchasePage } from '../product-purchase/product-purchase';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,7 @@ export class AboutPage {
   headimg: String;
   producturl: String;
 
-  constructor(public navCtrl: NavController, public appService: AppService) {
+  constructor(public navCtrl: NavController, public appService: AppService, private statusBar: StatusBar) {
     this.getImg();
   }
 
@@ -35,6 +36,13 @@ export class AboutPage {
     this.navCtrl.push(ProductPurchasePage, {
       url: this.producturl
     })
+  }
+
+  ionViewWillEnter(){
+    // this.statusBar.styleLightContent();
+    this.statusBar.styleDefault();
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#999');
   }
 
 }

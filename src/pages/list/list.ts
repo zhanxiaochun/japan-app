@@ -90,16 +90,17 @@ export class ListPage {
     this.navCtrl.push(ProductSearchPage);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListPage');
-    // this.statusBar.styleDefault();
-    this.statusBar.styleLightContent();
-    this.statusBar.overlaysWebView(false);
-    this.statusBar.backgroundColorByHexString('#999');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad ListPage');
+  //   this.statusBar.styleDefault();
+  //   // this.statusBar.styleLightContent();
+  //   this.statusBar.overlaysWebView(false);
+  //   this.statusBar.backgroundColorByHexString('#999');
+  // }
 
   ionViewWillEnter(){
-    this.statusBar.styleLightContent();
+    // this.statusBar.styleLightContent();
+    this.statusBar.styleDefault();
     this.statusBar.overlaysWebView(false);
     this.statusBar.backgroundColorByHexString('#999');
   }

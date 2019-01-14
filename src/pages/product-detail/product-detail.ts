@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { ProductAttrPage } from '../product-attr/product-attr';
 import { ProductCartPage } from '../product-cart/product-cart';
+import { StatusBar } from '@ionic-native/status-bar';
 
 /**
  * Generated class for the ProductDetailPage page.
@@ -26,7 +27,7 @@ export class ProductDetailPage {
   attr: Array<any> = [];
   selectTitle: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public events: Events) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public events: Events, private statusBar: StatusBar) {
     this.pid = this.navParams.get('pid');
     this.token = this.appService.getToken();
     this.selectTitle = '选择颜色尺寸及数量';
@@ -96,7 +97,8 @@ export class ProductDetailPage {
       this.appService.httpPost(AppGlobal.API.addcart, params, rs=>{
         console.log(rs);
         if(rs.code == 200){
-          this.appService.toast('加入购物车成功');
+          // this.appService.toast('加入购物车成功');
+          this.appService.alert('加入购物车成功');
         }
       })
     }else{
@@ -113,6 +115,8 @@ export class ProductDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductDetailPage');
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#999');
   }
 
 }

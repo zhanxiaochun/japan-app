@@ -173,15 +173,15 @@ export class MemberPage {
   
   this.fileTransfer.upload(this.path, apiPath, options)
   .then((data) => {
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     let rsdata = JSON.parse(data['response']);
     // alert(rsdata['msg']);
     
     if(rsdata['code'] == 200){
       
-      this.member['avatar'] = rsdata['data']['data']['path'];
+      this.member['icon'] = rsdata['data']['data']['path'];
       this.updatehead(rsdata['data']['data']['path']);
-      alert(rsdata['data']['data']['path']);
+      // alert(rsdata['data']['data']['path']);
     }else{
       // alert(JSON.stringify(data)+'ss');
       this.appService.alert('上传图片失败');

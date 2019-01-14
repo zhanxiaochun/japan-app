@@ -1,7 +1,10 @@
 <ion-header>
   <!-- <ion-navbar> -->
     <!-- <ion-title> -->
-      <img src="{{headimg}}" alt="">
+      <div *ngIf="headimg">
+          <img src="{{headimg}}" alt="">
+      </div>
+      
     <!-- </ion-title> -->
   <!-- </ion-navbar> -->
 </ion-header>

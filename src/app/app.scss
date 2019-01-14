@@ -77,7 +77,7 @@
     flex: 1;
     width: 0;
     height: 3.2rem;
-    border-width: 1px;
+    // border-width: 1px;
     border-style: solid;
     border-color: #fff!important;
     // border:none!important;
@@ -85,14 +85,17 @@
     line-height: 3rem;
     color: #333333!important;
     background-color: transparent;
+    border:none!important;
+    font-weight: 700;
 }
 .segment-ios .segment-button.segment-activated {
     color: #ff4633!important;
-    background-color: #fff;
+    background-color: #F8F8F8;
     border-bottom:3px solid #ff4633!important;
     opacity: 1;
     -webkit-transition: 100ms all linear;
     transition: 100ms all linear;
+    font-weight: 700;
 }
 .segment-md .segment-button {
     -webkit-box-flex: 1;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, Events, App } from 'ionic-angular';
-import { AppService, AppGlobal } from './../../app/app.service';
+import { IonicPage, NavController, NavParams, ViewController, Events } from 'ionic-angular';
+import { AppService } from './../../app/app.service';
 
 /**
  * Generated class for the ProductAttrPage page.
