@@ -24,12 +24,13 @@ export class ProductListPage {
   param: Array<any> = [];
   active: String = 'default';
   priceorder: String = 'price-asc';
+  searchinfo: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
     let aa = navParams.get('product');
     this.param = navParams.get('param');
+    this.searchinfo = navParams.get('searchinfo');
     console.log(this.param);
-    console.log(aa);
     this.cateid = navParams.get('cateid');
     console.log(this.cateid);
     if(aa == undefined){

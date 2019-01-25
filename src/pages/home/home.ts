@@ -27,6 +27,7 @@ export class HomePage {
   category: Array<any> = [];
   categories: Array<any> = [];
   products: Array<any> = [];
+  coin: String;
 
   spinner1: boolean = true;
   token: string;
@@ -38,6 +39,8 @@ export class HomePage {
     //   statusBar.overlaysWebView(false);
     //   statusBar.backgroundColorByHexString('#ff4633');
     // })
+
+    this.coin = AppGlobal.coin;
     
     this.category = [
       {id: 2, url: '../../assets/imgs/cate3.png', title: '亚马逊'},

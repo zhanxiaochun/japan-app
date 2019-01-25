@@ -1,21 +1,32 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppService, AppGlobal } from '../../app/app.service';
 import { ProductPurchasePage } from '../product-purchase/product-purchase';
 import { StatusBar } from '@ionic-native/status-bar';
 
+/**
+ * Generated class for the AboutPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
 @IonicPage()
 @Component({
   selector: 'page-about',
-  templateUrl: 'about.html'
+  templateUrl: 'about.html',
 })
 export class AboutPage {
 
   headimg: String;
   producturl: String;
 
-  constructor(public navCtrl: NavController, public appService: AppService, private statusBar: StatusBar) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public appService: AppService, private statusBar: StatusBar) {
+  }
+
+  ionViewDidLoad() {
     this.getImg();
+    console.log('ionViewDidLoad AboutPage');
   }
 
   // 获取图片
@@ -39,6 +50,7 @@ export class AboutPage {
   }
 
   ionViewWillEnter(){
+    // this.getImg();
     // this.statusBar.styleLightContent();
     this.statusBar.styleDefault();
     this.statusBar.overlaysWebView(false);

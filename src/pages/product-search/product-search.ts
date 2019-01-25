@@ -43,11 +43,18 @@ export class ProductSearchPage {
         if(this.searchstr != null){
           // 如果搜索超过50个，则删除之前的
           for(let i = 0; i < this.searcharr.length; i++){
+            // 判断是否有已经搜索过
+            if(this.searcharr[i] == this.searchinfo){
+              this.searcharr.splice(i,1);
+              console.log(this.searcharr);
+            }
             if(i >= 9){
-              this.searcharr.shift();
+              // this.searcharr.shift();
+              this.searcharr.pop();
             }
           }
-          this.searcharr.push(this.searchinfo);
+          // this.searcharr.push(this.searchinfo);
+          this.searcharr.unshift(this.searchinfo);
         }else{
           this.searcharr[0] = this.searchinfo;
         }
@@ -56,7 +63,8 @@ export class ProductSearchPage {
         this.getsearch();
         this.navCtrl.push(ProductListPage, {
           product: rs.data,
-          param: params
+          param: params,
+          searchinfo: this.searchinfo
         })
       }
     })
@@ -74,9 +82,17 @@ export class ProductSearchPage {
     this.appService.httpGet(AppGlobal.API.getProducts, params, rs=>{
       if(rs.code == 200){
         this.searchinfo = str;
+        for(let i = 0; i < this.searcharr.length; i++){
+          // 判断是否有已经搜索过
+          if(this.searcharr[i] == this.searchinfo){
+            this.searcharr.splice(i,1);
+            this.searcharr.unshift(this.searchinfo);
+          }
+        }
         this.navCtrl.push(ProductListPage, {
           product: rs.data,
-          param: params
+          param: params,
+          searchinfo: this.searchinfo
         })
       }
     })
@@ -88,6 +104,7 @@ export class ProductSearchPage {
     console.log(this.searchstr);
     if(this.searchstr != null){
       this.searcharr = this.searchstr.split('##');
+      // this.searcharr = this.searcharr.reverse();
     }
   }
 
