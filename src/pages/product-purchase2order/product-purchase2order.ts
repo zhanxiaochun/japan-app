@@ -28,7 +28,7 @@ export class ProductPurchase2orderPage {
       this.address = data;
     })
     this.product = navParams.get('product');
-    this.product['total'] = Number(this.product['price']) * Number(this.product['count']);
+    this.product['total'] = Number(this.product['price'].replace(',','')) * Number(this.product['count']);
     this.token = this.appService.getToken();
     this.coin = AppGlobal.coin;
     console.log(this.product);
@@ -76,6 +76,9 @@ export class ProductPurchase2orderPage {
     }
     this.appService.httpPost(AppGlobal.API.createPurchaseOrder, params, rs=>{
       console.log(rs);
+      if(rs.code == 200){
+        this.appService.alert('提交成功');
+      }
     })
   }
 

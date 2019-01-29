@@ -48,7 +48,7 @@ export class ProductSearchPage {
               this.searcharr.splice(i,1);
               console.log(this.searcharr);
             }
-            if(i >= 9){
+            if(i >= 19){
               // this.searcharr.shift();
               this.searcharr.pop();
             }
@@ -68,6 +68,13 @@ export class ProductSearchPage {
         })
       }
     })
+  }
+
+  onSearchKeyUp(event){
+    if("Enter"==event.key){
+     //function
+     this.searchproduct();
+    }
   }
 
   // 点击缓存记录搜索
@@ -117,6 +124,13 @@ export class ProductSearchPage {
 
 
   @ViewChild(Navbar) navBar: Navbar;
+  @ViewChild('productsearch') myInput;
+
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.myInput.setFocus();//为输入框设置焦点
+    },150);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductSearchPage');

@@ -44,6 +44,7 @@ page-product-cart {
   .product {
     height: 90px;
     margin-left: 10px;
+    width:100%;
     // border: 1px solid blue;
   }
 
@@ -66,7 +67,7 @@ page-product-cart {
   }
 
   .list-price {
-    height: 30px;
+    // height: 30px;
     line-height: 20px;
     position: relative;
     bottom: 0;
@@ -140,6 +141,13 @@ page-product-cart {
     .otherfee i{
       font-style: normal;
       font-size: 12px;
+    }
+    .cartnum-icon{
+      ion-icon{
+        font-size:18px;
+        font-weight:800;
+      }
+      
     }
   
 }

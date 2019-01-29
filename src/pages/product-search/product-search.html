@@ -10,12 +10,12 @@
     <div class="my-title">
         <div class="search-border">
             <ion-icon name="search" class="search-icon"></ion-icon>
-            <input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" autofocus="autofocus">
+            <ion-input #productsearch type="search" class="search-input" [ngModelOptions]="{standalone:true}" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" autofocus="true" (keyup)="onSearchKeyUp($event)"></ion-input>
           </div>
     </div>
     <ion-buttons end>
       <!-- <button class="search-btn" (click)="searchproduct()">搜索</button> -->
-      <div (click)="searchproduct()">搜索</div>
+      <div (click)="searchproduct()" style="padding-right:5px;font-size:15px;">搜索</div>
     </ion-buttons>
   </ion-navbar>
 

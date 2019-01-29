@@ -24,30 +24,30 @@
           <div class="item-center"><ion-icon padding-right class="iconfont ali-icon">&#xe702;</ion-icon>支付宝</div>
           <ion-item style="width:50px;flex-shrink: 0">
               <!-- <ion-label>Cucumber</ion-label> -->
-                <ion-checkbox [(ngModel)]="alipay"></ion-checkbox>
+                <ion-checkbox [(ngModel)]="alipay" (click)="method(1)"></ion-checkbox>
           </ion-item>
       </ion-row>
       <ion-row justify-content-between align-items-center>
           <div class="item-center"><ion-icon padding-right class="iconfont wechat-icon">&#xe626;</ion-icon>微信</div>
           <ion-item style="width:50px;flex-shrink: 0">
               <!-- <ion-label>亚马逊商城</ion-label> -->
-              <ion-checkbox [(ngModel)]="wechatpay"></ion-checkbox>
+              <ion-checkbox [(ngModel)]="wechatpay" (click)="method(2)"></ion-checkbox>
           </ion-item>
       </ion-row>
     </div>
 
     <div padding class="rechargenum-box item-bg">
-        <div>充值金额</div>
+        <div>提现金额</div>
         <div padding-top class="num-box">
-          <label for="">￥</label>
-          <input type="text" class="input-border">
+          <label for="">{{coin}}</label>
+          <input type="number" class="input-border" [(ngModel)]="amount">
         </div>
     </div>
 
     <div padding-left padding-right class="withdraw-note item-bg">可提现余额：{{coin}}{{balance}}</div>
   
     <div padding>
-        <button ion-button full style="background:#ff4633;margin-top:30px;" (click)="rechargenow()">立即提现</button>
+        <button ion-button full style="background:#ff4633;margin-top:30px;" (click)="withrownow()">立即提现</button>
       </div>
   
   </ion-content>

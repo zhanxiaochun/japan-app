@@ -97,7 +97,12 @@
                       <!-- </div> -->
                     </div>
             </div>
-            
+            <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)"> 
+                <ion-infinite-scroll-content
+                 loadingSpinner="bubbles"
+                 loadingText="加载中..."> 
+                 </ion-infinite-scroll-content> 
+             </ion-infinite-scroll>
           </ion-list>
         
           <ion-list *ngSwitchCase="'waitPay'">
@@ -145,6 +150,13 @@
                             </ion-row>
                       </div>
               </div>
+
+              <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)"> 
+                <ion-infinite-scroll-content
+                 loadingSpinner="bubbles"
+                 loadingText="加载中..."> 
+                 </ion-infinite-scroll-content> 
+             </ion-infinite-scroll>
           </ion-list>
 
           <ion-list *ngSwitchCase="'waitReceive'">
@@ -192,6 +204,12 @@
                             </ion-row>
                       </div>
               </div>
+              <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)"> 
+                <ion-infinite-scroll-content
+                 loadingSpinner="bubbles"
+                 loadingText="加载中..."> 
+                 </ion-infinite-scroll-content> 
+             </ion-infinite-scroll>
           </ion-list>
 
           <ion-list *ngSwitchCase="'waitComment'">
@@ -239,6 +257,12 @@
                             </ion-row>
                       </div>
               </div>
+              <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)"> 
+                <ion-infinite-scroll-content
+                 loadingSpinner="bubbles"
+                 loadingText="加载中..."> 
+                 </ion-infinite-scroll-content> 
+             </ion-infinite-scroll>
           </ion-list>
 
           <ion-list *ngSwitchCase="'finished'">
@@ -286,14 +310,26 @@
                             </ion-row>
                       </div>
               </div>
+              <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)"> 
+                <ion-infinite-scroll-content
+                 loadingSpinner="bubbles"
+                 loadingText="加载中..."> 
+                 </ion-infinite-scroll-content> 
+             </ion-infinite-scroll>
           </ion-list>
 
       </div>
 
-      <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)">
+      <!-- <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)">
         <ion-infinite-scroll-content>正在加载</ion-infinite-scroll-content>
-      </ion-infinite-scroll>
-      <!-- <div *ngIf="orderhas == 1">
-        我是有底线的
-      </div> -->
+      </ion-infinite-scroll> -->
+      
+   
+      <div *ngIf="orderhas == 1">
+        <div class="bottomline">
+            <span class="line"></span>
+            <span class="text">我是有底线的</span>
+            <span class="line"></span>
+        </div>
+      </div>
 </ion-content>

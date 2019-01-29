@@ -193,3 +193,21 @@
     color:#ff4633;
 }
 
+
+.bottomline {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+ }
+  .bottomline .line {
+    display: inline-block;
+    width: 150px;
+    border-top: 1px solid #ccc ;
+    vertical-align: 5%;
+ }
+ .bottomline .text {
+    color: #686868;
+    vertical-align: middle;
+ }
+
+

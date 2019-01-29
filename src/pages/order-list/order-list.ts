@@ -48,7 +48,8 @@ export class OrderListPage {
 
   // 获取全部订单
   getAll(status){
-    this.status = status
+    this.status = status;
+    this.orderhas = 0;
     let params = {
       token: this.token,
       type: 1,
@@ -175,8 +176,7 @@ export class OrderListPage {
   // 加载更多
   loadMoreOrder(infiniteScroll){
     console.log(this.orderNum);
-    this.page = Number(this.page) + 1;
-    this.getAll(this.status);
+    
     if(infiniteScroll){
       infiniteScroll.complete();
       if(this.orderNum < 15){
@@ -185,6 +185,8 @@ export class OrderListPage {
         this.appService.toast("已加载所有");
       }else{
         this.orderNum = 0;
+        this.page = Number(this.page) + 1;
+        this.getAll(this.status);
       }
     }
   }

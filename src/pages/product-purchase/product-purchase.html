@@ -15,6 +15,7 @@
 
 <ion-content>
 
+  <div *ngIf="isdone == 1">
     <div padding>
         <ion-row justify-content-between class="input-border">
             <input type="text" [(ngModel)]="url" class="url-input" placeholder="请输入商品链接">
@@ -79,6 +80,6 @@
      <div [innerHTML]="assembleHTML(product.content)">
       </div>
       
-      
+  </div>
 
 </ion-content>

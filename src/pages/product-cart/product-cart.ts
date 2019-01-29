@@ -194,6 +194,7 @@ export class ProductCartPage {
           ishave = false;
           //删除
           this.cartIds.splice(i,1);
+          break;
         }else{
           ishave = true;
         }
@@ -204,13 +205,12 @@ export class ProductCartPage {
     }else{
       this.cartIds.push(id);
     }
-    // console.log(this.cartIds);
     this.calculate();
   }
 
   // 选择商品 - 分类全选
   checktype(cate,type){
-    console.log(type);
+
     if(cate == 1){
       for(let i = 0; i < this.cart.length; i++){
         // this.cart[i]['check'] = type;
@@ -218,6 +218,7 @@ export class ProductCartPage {
           this.cart[i]['check'] = type;
           this.selectProduct(this.cart[i]['id']);
         }
+        // console.log(this.cart);
       }
     }else if(cate == 2){
       for(let i = 0; i < this.cart2.length; i++){
@@ -269,7 +270,7 @@ export class ProductCartPage {
         this.cart3[k]['check'] = type;
       }
     }
-    console.log(this.cartIds);
+    // console.log(this.cartIds);
     this.calculate();
   }
 
@@ -316,14 +317,14 @@ export class ProductCartPage {
   }
 
   // 编辑
-  chanagestatus(){
-    this.status = 1;
-    console.log(this.status);
+  chanagestatus(status){
+    this.status = status;
+    // console.log(this.status);
   }
 
   // 删除购物车
   delCart(){
-    console.log(this.cartIds);
+    // console.log(this.cartIds);
     let params = {
       token: this.token,
       id: this.cartIds.join(',')
@@ -332,6 +333,13 @@ export class ProductCartPage {
       console.log(rs);
       if(rs.code == 200){
         this.appService.alert('删除成功');
+        this.getCartShop();
+        this.getCartAmazon();
+        this.getCartRatuken();
+        this.type1 = this.type2 = this.type3 = this.type0 = false;
+        this.cartNum = 0;
+        this.total = 0.00;
+        this.status = 0;
       }
     })
   }

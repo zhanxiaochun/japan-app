@@ -1,24 +1,30 @@
 
-<ion-header>
+<!-- <ion-header>
     <ion-navbar color="mybg">
         <div style="background: #ff4633;" class="head">
-          <!-- <div style="height:30px;width:70%;background:#fff;margin-bottom:10px;"></div> -->
           <ion-row justify-content-between padding-left padding-right>
               <div><ion-icon class="iconfont ml-10" style="font-size:22px!important;visibility: hidden;">&#xe616;</ion-icon></div>
-              <div class="search-box"><ion-icon name="search" style="font-size:20px!important;color:#999999;padding-left:0px;"></ion-icon><input type="text" class="search-input" (click)="search()"></div>
-              <!-- <input type="text" class="search-box"> -->
+              <div class="search-box"><ion-icon name="search" style="font-size:20px!important;color:#999999;padding-left:0px;"></ion-icon><ion-input type="search" class="search-input" (click)="search()"></ion-input></div>
               <div (click)="goCart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
           </ion-row>
         </div>
-      <!-- <ion-title>首页</ion-title> -->
-      <!-- <ion-searchbar style="border-radius: 20px;margin-left:10%;width:80%;" (ionInput)="getItems($event)"></ion-searchbar> -->
-      <!-- <ion-buttons end padding-right>
-          <button (click)="gocart()" style="background-color:#fff;">
-            <ion-icon name="ios-cart-outline" style="font-size:20px;"></ion-icon>
-          </button> 
-      </ion-buttons> -->
     </ion-navbar>
-  </ion-header>
+</ion-header> -->
+
+<ion-header>
+  <ion-navbar no-border-bottom  color="mybg">
+    <div class="my-title">
+        <div class="search-border">
+            <ion-icon name="search" class="search-icon"></ion-icon>
+            <ion-input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" (click)="search()"></ion-input>
+          </div>
+    </div>
+      
+      <ion-buttons end>
+        <div (click)="goCart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;margin-right:5px;">&#xe616;</ion-icon></div>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
   <ion-content>
   
     <ion-row *ngIf="spinner1">
@@ -30,7 +36,7 @@
     <ion-slides *ngIf="slides.length > 1" loop="true" slidesPerView="auto" pager="true">
       <ion-slide *ngFor="let item of slides">
           <!-- <img src="http://www.jj.com/uploadfile/{{item.adfile}}" alt="" style="height:175px;width:375px;"> -->
-          <img src="{{item.url}}" alt="" style="height:200px;width:100%;">
+          <img src="{{item.url}}" alt="" style="height:215px;width:100%;">
         <!-- <div class="cover"></div>
         <span class="title">{{item.Title}}</span> -->
       </ion-slide>

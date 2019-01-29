@@ -69,7 +69,19 @@ export class ProductDetailPage {
     }
     this.appService.httpGet(AppGlobal.API.getComment, params, rs=>{
       if(rs.code == 200){
+
         this.comment = rs.data;
+        for(let i = 0; i < this.comment.length; i++){
+          if(this.comment[i]['property'] != ''){
+            this.comment[i]['property'] = JSON.parse(this.comment[i]['property']);
+            this.comment[i]['prostr'] = '';
+            for(let j = 0; j < this.comment[i]['property'].length; j++){
+
+              this.comment[i]['prostr'] = this.comment[i]['prostr'] + this.comment[i]['property'][j]['attrKey']['propertyname'] + ':' + this.comment[i]['property'][j]['attrValue'] + '-';
+            }
+            this.comment[i]['prostr'] = this.comment[i]['prostr'].substring(0,this.comment[i]['prostr'].length-1);
+          }
+        }
       }
       
       console.log(this.comment);

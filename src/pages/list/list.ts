@@ -4,6 +4,7 @@ import { AppService, AppGlobal } from '../../app/app.service';
 import { ProductListPage } from '../product-list/product-list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ProductSearchPage } from '../product-search/product-search';
+import { ProductCartPage } from '../product-cart/product-cart';
 
 /**
  * Generated class for the ListPage page.
@@ -72,6 +73,7 @@ export class ListPage {
 
   // 跳转到商品列表页
   goProductList(cid){
+    // console.log(cid);return;
     let params = {
       type: this.cateid,
       category: cid,
@@ -80,9 +82,14 @@ export class ListPage {
       page: 1
     }
     this.navCtrl.push(ProductListPage, {
-      // cateid: cid
+      cateid: cid,
       param: params
     });
+  }
+
+  // 购物车
+  goCart(){
+    this.navCtrl.push(ProductCartPage);
   }
 
   // 搜索

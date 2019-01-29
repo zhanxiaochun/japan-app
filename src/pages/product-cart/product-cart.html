@@ -8,12 +8,14 @@
 
   <ion-navbar>
     <ion-title>购物车</ion-title>
-    <ion-buttons end padding-right>
+    <ion-buttons end>
         <div *ngIf="status == 0;else cartedit">
-            <button (click)="chanagestatus()" style="background-color:#fff;font-size:1.7rem;">管理</button> 
+            <!-- <button (click)="chanagestatus()" style="background-color:#fff;font-size:1.7rem;">管理</button> -->
+            <div (click)="chanagestatus(1)" style="padding-right:5px;font-size:15px;">管理</div>
         </div>
         <ng-template #cartedit>
-                <button style="background-color:#fff;font-size:1.7rem;">编辑</button> 
+                <!-- <button style="background-color:#fff;font-size:1.7rem;">编辑</button>  -->
+                <div (click)="chanagestatus(0)" style="padding-right:5px;font-size:15px;">编辑</div>
         </ng-template>
         
     </ion-buttons>
@@ -30,7 +32,7 @@
                   <ion-label>淘日本商城</ion-label>
                   <ion-checkbox [(ngModel)]="type1" (click)="checktype(1,type1)"></ion-checkbox>
               </ion-item>
-              <div><ion-icon name="arrow-up"></ion-icon></div>
+              <!-- <div><ion-icon name="arrow-up"></ion-icon></div> -->
           </ion-row>
       </div>
       <div padding-right class="item-border2" *ngFor="let item of cart;let i = index">
@@ -50,12 +52,46 @@
                     <ng-template #webprice>
                         <span class="price-new"><i>{{coin}}</i>{{item.product.webprice}}</span>
                     </ng-template>
-                    <div><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,1)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,1)"></ion-icon></div>
+                    <div class="cartnum-icon"><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,1)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,1)"></ion-icon></div>
                 </ion-row>
               </div>
             </ion-row>
       </div>
   </div>
+
+  <!-- <div *ngIf="cart.length > 0">
+    <div padding-right class="item-border">
+        <ion-row justify-content-between align-items-center>
+            <ion-item style="width:90%;">
+                <ion-label>亚马逊商城</ion-label>
+                <ion-checkbox [(ngModel)]="type1" (click)="checktype(1,type1)"></ion-checkbox>
+            </ion-item>
+            <div><ion-icon name="arrow-up"></ion-icon></div>
+        </ion-row>
+    </div>
+    <div padding-right class="item-border2" *ngFor="let item of cart;let i = index">
+      <ion-row justify-content-start align-items-center class="flex-nowrap">
+          <ion-item style="width:50px;flex-shrink: 0">
+              <ion-label>Cucumber</ion-label>
+                <ion-checkbox [(ngModel)]="item.check" (click)="selectProduct(item.id)"></ion-checkbox>
+          </ion-item>
+          <div class="product-img"><img src="{{item.product.images}}" alt=""></div>
+          <div class="product">
+            <div class="product-title">{{item.product.productname}}</div>
+            <div class="product-attr" *ngIf="item.attr">{{item.attr}}</div>
+            <ion-row justify-content-between class="list-price buy">
+                <div *ngIf="item.propertyX; else webprice">
+                    <span class="price-new"><i>{{coin}}</i>{{item.propertyX.price}}</span>
+                </div>
+                <ng-template #webprice>
+                    <span class="price-new"><i>{{coin}}</i>{{item.product.webprice}}</span>
+                </ng-template>
+                <div><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,2)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,2)"></ion-icon></div>
+            </ion-row>
+          </div>
+        </ion-row>
+  </div>
+</div> -->
   
 
   <div *ngIf="cart2.length > 0">
@@ -65,7 +101,7 @@
                   <ion-label>亚马逊商城</ion-label>
                   <ion-checkbox [(ngModel)]="type2" (click)="checktype(2,type2)"></ion-checkbox>
               </ion-item>
-              <div><ion-icon name="arrow-up"></ion-icon></div>
+              <!-- <div><ion-icon name="arrow-up"></ion-icon></div> -->
           </ion-row>
       </div>
       <div padding-right class="item-border2" *ngFor="let item of cart2;let i = index">
@@ -85,7 +121,7 @@
                   <ng-template #webprice>
                       <span class="price-new"><i>{{coin}}</i>{{item.product.webprice}}</span>
                   </ng-template>
-                  <div><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,2)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,2)"></ion-icon></div>
+                  <div class="cartnum-icon"><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,2)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,2)"></ion-icon></div>
               </ion-row>
             </div>
           </ion-row>
@@ -99,7 +135,7 @@
                   <ion-label>乐天商城</ion-label>
                   <ion-checkbox [(ngModel)]="type3" (click)="checktype(3,type3)"></ion-checkbox>
               </ion-item>
-              <div><ion-icon name="arrow-up"></ion-icon></div>
+              <!-- <div><ion-icon name="arrow-up"></ion-icon></div> -->
           </ion-row>
       </div>
       <div padding-right class="item-border2" *ngFor="let item of cart3;let i = index">
@@ -119,7 +155,7 @@
                     <ng-template #webprice>
                         <span class="price-new"><i>{{coin}}</i>{{item.product.webprice}}</span>
                     </ng-template>
-                    <div><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,3)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,3)"></ion-icon></div>
+                    <div class="cartnum-icon"><ion-icon style="margin-right:10px;" ios="ios-remove" md="md-remove" (click)="reduce(item.amount,item.id, i,3)"></ion-icon><input type="text" class="num-input" [(ngModel)]="item.amount" disabled="disabled"><ion-icon style="margin-left:10px;" ios="ios-add" md="md-add" (click)="plus(item.amount,item.id,i,3)"></ion-icon></div>
                 </ion-row>
               </div>
             </ion-row>

@@ -23,6 +23,7 @@ export class ProductPurchasePage {
   url: String;
   product: Array<any> = [];
   productnum: Number = 1;
+  isdone: Number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public sanitizer: DomSanitizer) {
     this.url = this.navParams.get('url');
@@ -33,6 +34,7 @@ export class ProductPurchasePage {
 
   // 获取商品
   getProduct(){
+    this.appService.show();
     let params = {
       urls: this.url
     }
@@ -40,12 +42,18 @@ export class ProductPurchasePage {
     this.appService.httpPost2('ds', params, rs=>{
       console.log(rs);
       if(rs.code == 200){
+        this.isdone = 1;
         this.product['productname'] = rs.data[0]['productname'];
         this.product['producturl'] = rs.data[0]['url'];
         this.product['productprice'] = rs.data[0]['productprice'];
         this.product['images'] = rs.data[0]['images'];
         this.product['content'] = rs.data[0]['content'];
         this.product['note'] = '';
+        this.appService.hide();
+      }else{
+        this.appService.alert('对不起，未找到该商品');
+        this.navCtrl.pop();
+        this.appService.hide();
       }
     })
   }
@@ -77,7 +85,6 @@ export class ProductPurchasePage {
       images: this.product['images'],
       content: this.product['content'],
       note: this.product['note'],
-      addressId: 16
     }
     // this.appService.httpPost(AppGlobal.API.createPurchaseOrder, params, rs=>{
     //   console.log(rs);

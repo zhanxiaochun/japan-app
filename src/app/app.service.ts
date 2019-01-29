@@ -98,14 +98,29 @@ export class AppGlobal {
         uploadImg: '/uploadapi/image',
         // 充值
         recharge: '/rechargeapi/apply',
+        // 提现
+        withdraw: '/withdrawapi/apply',
     };
 }
 
 @Injectable()
 export class AppService {
 
+    loading: any;
+
     constructor(public http: Http, public loadingCtrl: LoadingController, private alertCtrl: AlertController, private toastCtrl: ToastController, ) { }
 
+    show(){
+        this.loading = this.loadingCtrl.create({
+            content: '努力加载中...'
+        });
+        this.loading.present();
+    }
+    hide(){
+        if(this.loading){
+            this.loading.dismiss();
+        }
+    }
     // 对参数进行编码
     encode(params) {
         var str = '';
@@ -236,7 +251,8 @@ export class AppService {
             message: message,
             duration: 2000,
             dismissOnPageChange: true,
-            position: 'middle'
+            position: 'top'
+            // position: 'middle'
         });
         toast.present();
         if (callback) {

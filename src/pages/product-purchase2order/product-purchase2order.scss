@@ -32,9 +32,11 @@ page-product-purchase2order {
           font-family: "黑体-简";
         }
         margin-bottom:1px;
+        height:auto!important;
       }
       .flex-nowrap{
         flex-wrap: nowrap;
+        // overflow:hidden;
       }
     
       .product-img {
@@ -45,7 +47,7 @@ page-product-purchase2order {
       }
     
       .product {
-        height: 90px;
+        // height: 90px;
         margin-left: 10px;
         // border: 1px solid blue;
       }
@@ -62,7 +64,7 @@ page-product-purchase2order {
         font-weight: 600;
       }
       .product-attr{
-        height:20px;
+        // height:20px;
         line-height:20px;
         color:#8C8C8C;
         margin-top:5px;

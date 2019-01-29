@@ -12,7 +12,7 @@
         <!-- <button (click)="gocart()" style="background-color:#fff;">
           <ion-icon name="ios-cart-outline" style="font-size:20px;"></ion-icon>
         </button>  -->
-        <div (click)="gocart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
+        <div (click)="gocart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;padding-right:5px;">&#xe616;</ion-icon></div>
     </ion-buttons>
   </ion-navbar>
 
@@ -76,7 +76,8 @@
                 <div padding-top padding-bottom class="comment-content">{{item.content}}</div>
                 <ion-row justify-content-between class="color9">
                   <div>{{item.addtime}}</div>
-                  <div *ngIf="item.property != false">{{item.property}}</div>
+                  <!-- <div *ngIf="item.property != false">{{item.property}}</div> -->
+                  <div *ngIf="item.property != false">{{item.prostr}}</div>
                 </ion-row>
               </div>
             </div>

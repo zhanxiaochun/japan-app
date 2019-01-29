@@ -11,7 +11,7 @@
     <div class="my-title">
         <div class="search-border">
             <ion-icon name="search" class="search-icon"></ion-icon>
-            <input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" (click)="search()">
+            <ion-input type="text" class="search-input" [(ngModel)]="searchinfo" placeholder="搜索商城商品名称/品牌" (click)="search()"></ion-input>
         </div>
     </div>
     
@@ -70,6 +70,20 @@
             
           </ion-col>
         </ion-row>
+        <ion-infinite-scroll (ionInfinite)="loadMoreOrder($event)"> 
+          <ion-infinite-scroll-content
+           loadingSpinner="bubbles"
+           loadingText="加载中..."> 
+           </ion-infinite-scroll-content> 
+        </ion-infinite-scroll>
+    </div>
+
+    <div *ngIf="orderhas == 1">
+      <div class="bottomline">
+          <span class="line"></span>
+          <span class="text">我是有底线的</span>
+          <span class="line"></span>
+      </div>
     </div>
 
 </ion-content>

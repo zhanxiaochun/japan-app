@@ -19,7 +19,7 @@
     <div>充值金额</div>
     <div padding-top class="num-box">
       <label for="">{{coin}}</label>
-      <input type="text" class="input-border">
+      <input type="number" class="input-border" [(ngModel)]="amount">
     </div>
   </div>
   
@@ -29,15 +29,13 @@
     <ion-row justify-content-between align-items-center>
         <div class="item-center"><ion-icon padding-right class="iconfont ali-icon">&#xe702;</ion-icon>支付宝</div>
         <ion-item style="width:50px;flex-shrink: 0">
-            <!-- <ion-label>Cucumber</ion-label> -->
-              <ion-checkbox [(ngModel)]="alipay"></ion-checkbox>
+              <ion-checkbox [(ngModel)]="alipay" (click)="paymethod(1)"></ion-checkbox>
         </ion-item>
     </ion-row>
     <ion-row justify-content-between align-items-center>
         <div class="item-center"><ion-icon padding-right class="iconfont wechat-icon">&#xe626;</ion-icon>微信</div>
         <ion-item style="width:50px;flex-shrink: 0">
-            <!-- <ion-label>亚马逊商城</ion-label> -->
-            <ion-checkbox [(ngModel)]="wechatpay"></ion-checkbox>
+            <ion-checkbox [(ngModel)]="wechatpay" (click)="paymethod(2)"></ion-checkbox>
         </ion-item>
     </ion-row>
 
