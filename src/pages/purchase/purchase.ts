@@ -41,6 +41,10 @@ export class PurchasePage {
       console.log(data);
       this.raddress = data;
     })
+    
+  }
+
+  ionViewWillEnter(){
     this.token = this.appService.getToken();
     this.getReceiveAddress();
   }
@@ -65,7 +69,13 @@ export class PurchasePage {
 
   // 选择地址
   manageAddress(){
-    this.navCtrl.push(MemberAddresscheckPage);
+    console.log(this.token);
+    if(this.token == null){
+      this.appService.toast(AppGlobal.loginnote);
+    }else{
+      this.navCtrl.push(MemberAddresscheckPage);
+    }
+    
   }
 
   // 提交订单

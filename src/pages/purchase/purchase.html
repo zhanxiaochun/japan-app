@@ -15,7 +15,7 @@
 
 <ion-content class="content-bg" padding-top>
   <div class="fsize-14 item-bg address-border" padding>
-      <ion-row justify-content-between>
+      <ion-row justify-content-between *ngIf="raddress.address; else noaddress">
           <div style="width:90%;">
               <ion-row justify-content-between>
                 <div>{{raddress.name}}</div>
@@ -25,6 +25,9 @@
           </div>
           <div class="icon-box" (click)="manageAddress()"><ion-icon name="arrow-forward"></ion-icon></div>
       </ion-row>
+      <ng-template #noaddress>
+        <div style="color:#4d4d4d" (click)="manageAddress()">管理地址</div>
+      </ng-template>
   </div>
     
   <div padding-left padding-right class="item-bg">

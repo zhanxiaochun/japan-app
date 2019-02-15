@@ -24,12 +24,12 @@ export class MemberAddresscheckPage {
   addressId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public events: Events) {
-    this.token = this.appService.getToken();
-    this.getAddress();
+    
   }
 
    // 获取地址
    getAddress(){
+     this.address = [];
     let params = {
       token: this.token,
     }
@@ -83,6 +83,11 @@ export class MemberAddresscheckPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MemberAddresscheckPage');
+  }
+
+  ionViewWillEnter(){
+    this.token = this.appService.getToken();
+    this.getAddress();
   }
 
 }

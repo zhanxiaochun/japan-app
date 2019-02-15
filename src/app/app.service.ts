@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class AppGlobal {
     // 全局变量
     static coin = "￥";
+    static loginnote = "请先登录";
     //缓存key的配置
     // static cache: any = {
     //     slides: "_dress_slides",
@@ -283,5 +284,13 @@ export class AppService {
     // 提取token
     getToken(){
         return window.localStorage.getItem('token');
+    }
+
+    // 判断必填选项
+    checkParams(key,info){
+        if(key == undefined || key == ''){
+            this.toast(info);
+            return false;
+        }
     }
 }

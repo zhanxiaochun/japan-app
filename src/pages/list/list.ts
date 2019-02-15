@@ -24,11 +24,10 @@ export class ListPage {
   parentid: string;
   categoryright: Array<any> = [];
   cateid: any;
-  // selectedMenuTarget: any;
-  // products: Array<any> = [];
   hasmore = true;
   islock = false;
   catechecked = true;
+  token: String;
 
   @ViewChild('scroll') scrollElement: any;
   @ViewChild('spinner') spinnerElement: any;
@@ -41,7 +40,7 @@ export class ListPage {
     if(this.cateid == undefined){
       this.cateid = 1;
     }
-    this.getCategory(this.cateid);
+    
     // this.getChildCategory();
   }
 
@@ -89,7 +88,12 @@ export class ListPage {
 
   // 购物车
   goCart(){
-    this.navCtrl.push(ProductCartPage);
+    if(this.token == null){
+      this.appService.toast(AppGlobal.loginnote);
+    }else{
+      this.navCtrl.push(ProductCartPage);
+    }
+    
   }
 
   // 搜索
@@ -106,6 +110,8 @@ export class ListPage {
   // }
 
   ionViewWillEnter(){
+    this.token = this.appService.getToken();
+    this.getCategory(this.cateid);
     // this.statusBar.styleLightContent();
     this.statusBar.styleDefault();
     this.statusBar.overlaysWebView(false);

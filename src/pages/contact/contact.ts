@@ -14,6 +14,7 @@ import { HelpcenterPage } from '../helpcenter/helpcenter';
 import { StatusBar } from '@ionic-native/status-bar';
 import { RechargePage } from '../recharge/recharge';
 import { WithdrawPage } from '../withdraw/withdraw';
+import { MemberPage } from '../member/member';
 
 @IonicPage()
 @Component({
@@ -26,9 +27,9 @@ export class ContactPage {
   member: Array<any> = [];
 
   constructor(public navCtrl: NavController, public appService: AppService, private statusBar: StatusBar) {
-    this.token = this.appService.getToken();
-    this.ionViewWillEnter();
-    this.getMenberInfo();
+    
+    //this.ionViewWillEnter();
+    // this.getMenberInfo();
   }
 
   
@@ -47,6 +48,8 @@ export class ContactPage {
   ionViewWillEnter(){
     // this.token=window.localStorage.getItem('token');
     // console.log(this.token);
+    this.token = this.appService.getToken();
+    this.getMenberInfo();
     this.statusBar.styleBlackOpaque();
     this.statusBar.overlaysWebView(false);
     this.statusBar.backgroundColorByHexString('#ff4633');
@@ -61,18 +64,43 @@ export class ContactPage {
       console.log(rs);
       if(rs.code == 200){
         this.member = rs.data;
+      }else{
+        this.member['balance'] = 0;
+        this.member['score'] = 0;
       }
     })
   }
 
+  // 判断是否登录
+  checkToken(){
+    if(this.token == null){
+      this.appService.toast(AppGlobal.loginnote);
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  // 跳转到会员资料
+  goMember(){
+    
+    this.navCtrl.push(MemberPage);
+  }
+
   // 设置
   goSetup(){
-    this.navCtrl.push(SetupPage);
+    if(this.checkToken()){
+      this.navCtrl.push(SetupPage);
+    }
+    
   }
 
   // 购物车
   goCart(){
-    this.navCtrl.push(ProductCartPage);
+    if(this.checkToken()){
+      this.navCtrl.push(ProductCartPage);
+    }
+    
   }
 
   // 退出登录
@@ -83,9 +111,12 @@ export class ContactPage {
 
   // 商城订单
   shopOrder(status){
-    this.navCtrl.push(OrderListPage, {
-      status: status
-    });
+    if(this.checkToken()){
+      this.navCtrl.push(OrderListPage, {
+        status: status
+      });
+    }
+    
   }
 
   // 国际转运
@@ -100,16 +131,22 @@ export class ContactPage {
 
   // 转运订单
   goTransOrder(status){
-    this.navCtrl.push(OrderTranslistPage, {
-      status: status
-    });
+    if(this.checkToken()){
+      this.navCtrl.push(OrderTranslistPage, {
+        status: status
+      });
+    }
+    
   }
 
   // 线下代购订单
   goPurchaseOrder(status){
-    this.navCtrl.push(OrderPurchasePage, {
-      status: status
-    });
+    if(this.checkToken()){
+      this.navCtrl.push(OrderPurchasePage, {
+        status: status
+      });
+    }
+    
   }
 
   // 帮助中心
@@ -119,12 +156,18 @@ export class ContactPage {
 
   // 充值
   goRecharge(){
-    this.navCtrl.push(RechargePage);
+    if(this.checkToken()){
+      this.navCtrl.push(RechargePage);
+    }
+    
   }
 
   // 提现
   goWithdraw(){
-    this.navCtrl.push(WithdrawPage);
+    if(this.checkToken()){
+      this.navCtrl.push(WithdrawPage);
+    }
+    
   }
 
 }

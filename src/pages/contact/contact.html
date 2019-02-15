@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar color="danger">
-    <div style="background: linear-gradient(to right, #FF4633, #FF7454);" padding-left padding-right padding-bottom class="head">
+    <div style="background: linear-gradient(to right, #FF4633, #FF7454);" padding-left padding-right padding-bottom padding-top class="head">
     <!-- <ion-title>
       我的
     </ion-title>//at.alicdn.com/t/font_826901_kd9norbv61.css -->
     <ion-row justify-content-between>
       <ion-row justify-content-between align-items-center>
-        <div class="head-img"><img src="{{member.icon}}" alt=""></div>
+        <div class="head-img" (click)="goMember()"><img src="{{member.icon}}" alt=""></div>
         <div class="login-box" *ngIf="token; else notoken">
           <!-- <span (click)="login()">登录</span>
           <span>/</span>
@@ -28,7 +28,7 @@
       </ion-row>
     </ion-row>
 
-    <ion-row justify-content-between class="fontsize14 mt-20">
+    <ion-row justify-content-between  align-items-center class="fontsize14 mt-20">
       <ion-row justify-content-between align-items-center>
         <div class="">账户余额：{{member.balance}}</div>
         
@@ -36,10 +36,10 @@
           <div class="button-withdraw" (click)="goWithdraw()">提现</div>
        
       </ion-row>  
-      <ion-row justify-content-between align-items-center>
-        <div>积分：</div>
-        <div>{{member.score}}</div>
-      </ion-row>
+      <!-- <ion-row justify-content-between align-items-center> -->
+        <div>积分：<span>{{member.score}}</span></div>
+        
+      <!-- </ion-row> -->
     </ion-row>
   </div>
   </ion-navbar>

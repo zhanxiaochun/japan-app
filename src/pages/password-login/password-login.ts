@@ -38,6 +38,13 @@ export class PasswordLoginPage {
     }
     this.appService.httpPost(AppGlobal.API.memberUpdatePass, params, rs=>{
       console.log(rs);
+      if(rs.code == 200){
+        this.appService.alert('修改成功',this.navCtrl.pop().then(()=>{
+          
+        }));
+      }else{
+        this.appService.toast(rs.msg);
+      }
     })
   }
 

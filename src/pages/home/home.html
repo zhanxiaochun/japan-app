@@ -1,16 +1,3 @@
-
-<!-- <ion-header>
-    <ion-navbar color="mybg">
-        <div style="background: #ff4633;" class="head">
-          <ion-row justify-content-between padding-left padding-right>
-              <div><ion-icon class="iconfont ml-10" style="font-size:22px!important;visibility: hidden;">&#xe616;</ion-icon></div>
-              <div class="search-box"><ion-icon name="search" style="font-size:20px!important;color:#999999;padding-left:0px;"></ion-icon><ion-input type="search" class="search-input" (click)="search()"></ion-input></div>
-              <div (click)="goCart()"><ion-icon class="iconfont ml-10" style="font-size:22px!important;">&#xe616;</ion-icon></div>
-          </ion-row>
-        </div>
-    </ion-navbar>
-</ion-header> -->
-
 <ion-header>
   <ion-navbar no-border-bottom  color="mybg">
     <div class="my-title">
@@ -33,12 +20,10 @@
       </ion-col>
     </ion-row>
   
-    <ion-slides *ngIf="slides.length > 1" loop="true" slidesPerView="auto" pager="true">
-      <ion-slide *ngFor="let item of slides">
-          <!-- <img src="http://www.jj.com/uploadfile/{{item.adfile}}" alt="" style="height:175px;width:375px;"> -->
-          <img src="{{item.url}}" alt="" style="height:215px;width:100%;">
-        <!-- <div class="cover"></div>
-        <span class="title">{{item.Title}}</span> -->
+    <ion-slides #slides *ngIf="slidess.length > 1" loop="true" slidesPerView="auto" pager="true" autoplay="3000">
+      <ion-slide *ngFor="let item of slidess">
+          <img src="{{item.url}}" alt="" style="width:100%;min-height:215px;">
+        <!-- <img src="../../assets/imgs/banner1.png" alt="" style="height:30%;width:100%;"> -->
       </ion-slide>
     </ion-slides>
   
@@ -105,7 +90,7 @@
         <span class="t-header-right">></span>
        </ion-row>
     </ion-item-divider>
-    <div class="home-content">
+    <!-- <div class="home-content">
       <img src="{{takutenimg.url}}" alt="" class="cateogryimg">
       <div class="product">
         <ion-row wrap>
@@ -114,11 +99,24 @@
             <p>{{p.productname}}</p>
             <div class="list-price buy">
               <span class="price-new"><i>{{coin}}</i>{{p.webprice}}</span>
-              <!-- <i class="del">{{coin}}<span>{{p.webprice}}</span></i> -->
             </div>
           </ion-col>
         </ion-row>
       </div>
+    </div> -->
+    <div class="home-content">
+        <img src="{{takutenimg.url}}" alt="" class="categoryimg">
+        <div class="product">
+          <ion-row wrap>
+            <ion-col tappable col-4 *ngFor="let p of takutenproducts" (click)="goDetails(p.id)">
+              <img src="{{p.images}}" alt=""/>
+              <p>{{p.productname}}</p>
+              <div class="list-price buy">
+                <span class="price-new"><i>{{coin}}</i>{{p.webprice}}</span>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
     </div>
   
   </ion-content>

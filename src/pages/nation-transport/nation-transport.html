@@ -46,7 +46,7 @@
       </div> -->
       <ion-item class="item-border date-box">
         <ion-label>发货日期:</ion-label>
-        <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="senddate" cancelText="取消" doneText="确定" placeholder="请填写第三方发货日期"></ion-datetime>
+        <ion-datetime class="datestyle" displayFormat="YYYY-MM-DD" [(ngModel)]="senddate" cancelText="取消" doneText="确定" placeholder="请填写第三方发货日期"></ion-datetime>
       </ion-item>
       <div padding-top class="item-border">
           <ion-row justify-content-between padding-bottom class="input-border">
@@ -58,7 +58,7 @@
     <div padding-left class="item-title">国内收货地址</div>
 
     <div padding class="font-size14">
-      <ion-row justify-content-between>
+      <ion-row justify-content-between *ngIf="raddress.address;else noaddress">
         <div style="width:90%;">
             <ion-row justify-content-between>
               <div>{{raddress.name}}</div>
@@ -68,6 +68,9 @@
         </div>
         <div class="icon-box" (click)="manageAddress()"><ion-icon name="arrow-forward"></ion-icon></div>
       </ion-row>
+      <ng-template style="color:#4D4D4D;" #noaddress>
+        <div (click)="manageAddress()">管理地址</div>
+      </ng-template>
     </div>
   </div>
   

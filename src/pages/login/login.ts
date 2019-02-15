@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppService, AppGlobal } from '../../app/app.service';
-import { TabsPage } from '../tabs/tabs';
+import { RegisterPage } from '../register/register';
+import { ContactPage } from '../contact/contact';
 
 /**
  * Generated class for the LoginPage page.
@@ -31,9 +32,15 @@ export class LoginPage {
       // 登录成功，缓存token
       if(rs.code == 200){
         window.localStorage.setItem('token',rs.data.token);
-            this.navCtrl.setRoot(TabsPage);
+            // this.navCtrl.setRoot(TabsPage);
+            this.navCtrl.setRoot(ContactPage);
       }
     })
+  }
+
+  // 注册
+  register(){
+    this.navCtrl.push(RegisterPage);
   }
 
   ionViewDidLoad() {

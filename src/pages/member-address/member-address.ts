@@ -22,8 +22,8 @@ export class MemberAddressPage {
   address: Array<any> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public events: Events) {
-    this.token = this.appService.getToken();
-    this.getAddress();
+    
+    // this.getAddress();
     this.events.subscribe('aaa',(data)=>{
       console.log(data);
       this.getAddress();
@@ -32,6 +32,7 @@ export class MemberAddressPage {
 
   // 获取地址
   getAddress(){
+    this.address = [];
     let params = {
       token: this.token,
     }
@@ -92,8 +93,13 @@ export class MemberAddressPage {
     this.navCtrl.push(MemberAddressaddPage);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MemberAddressPage');
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad MemberAddressPage');
+  //   this.getAddress();
+  // }
+
+  ionViewWillEnter(){
+    this.token = this.appService.getToken();
     this.getAddress();
   }
 

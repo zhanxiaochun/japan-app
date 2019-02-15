@@ -25,7 +25,7 @@ export class AboutPage {
   }
 
   ionViewDidLoad() {
-    this.getImg();
+    //this.getImg();
     console.log('ionViewDidLoad AboutPage');
   }
 
@@ -50,7 +50,7 @@ export class AboutPage {
   }
 
   ionViewWillEnter(){
-    // this.getImg();
+    this.getImg();
     // this.statusBar.styleLightContent();
     this.statusBar.styleDefault();
     this.statusBar.overlaysWebView(false);

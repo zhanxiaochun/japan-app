@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, IonicPage, Slides } from 'ionic-angular';
 import { AppService, AppGlobal } from './../../app/app.service';
 
 import { ListPage } from '../list/list';
@@ -15,8 +15,9 @@ import { ProductSearchPage } from '../product-search/product-search';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('slides') slides: Slides;
 
-  slides: Array<any> = [];
+  slidess: Array<any> = [];
   selfshopimg: Array<any> = [];
   amazonimg: Array<any> = [];
   takutenimg: Array<any> = [];
@@ -33,12 +34,15 @@ export class HomePage {
   token: string;
 
 
+
   constructor(public appService: AppService,public navCtrl: NavController, private statusBar: StatusBar) {
     // platform.ready().then(()=>{
     //   statusBar.styleLightContent();
     //   statusBar.overlaysWebView(false);
     //   statusBar.backgroundColorByHexString('#ff4633');
     // })
+
+
 
     this.coin = AppGlobal.coin;
     
@@ -47,13 +51,7 @@ export class HomePage {
       {id: 3, url: '../../assets/imgs/cate2.png', title: '乐天'},
       {id: 1, url: '../../assets/imgs/cate1.png', title: '商城'}
     ];
-    this.getSlides();
-    this.getShopImg();
-    this.getAmazonImg();
-    this.getTakutenImg();
-    this.getSelfPorducts();
-    this.getAmazonPorducts();
-    this.getTakutenPorducts();
+    
 
   }
 
@@ -66,8 +64,19 @@ export class HomePage {
       this.statusBar.overlaysWebView(false);
       this.statusBar.backgroundColorByHexString('#ff4633');
     // })
-    
+
+    // this.slides.startAutoplay();
+    this.token = this.appService.getToken();
+    this.getSlides();
+    this.getShopImg();
+    this.getAmazonImg();
+    this.getTakutenImg();
+    this.getSelfPorducts();
+    this.getAmazonPorducts();
+    this.getTakutenPorducts();
   }
+
+
 
 
 
@@ -78,7 +87,7 @@ export class HomePage {
     }
     this.appService.httpGet(AppGlobal.API.getBanner, params, rs => {
       console.debug(rs);
-      this.slides = rs.data;
+      this.slidess = rs.data;
       this.spinner1 = false;
     })
   }
@@ -166,7 +175,12 @@ export class HomePage {
 
   // 购物车
   goCart(){
-    this.navCtrl.push(ProductCartPage);
+    if(this.token == null){
+      this.appService.toast(AppGlobal.loginnote);
+    }else{
+      this.navCtrl.push(ProductCartPage);
+    }
+    
   }
 
   // 搜索

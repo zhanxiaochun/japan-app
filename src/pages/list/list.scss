@@ -73,8 +73,11 @@ page-list {
   }
 
   .cateimg{
-    width:73px;
-    height:73px;
+    // width:73px;
+    // height:73px;
+    width:100%;
+    min-height:60px;
+    max-height:200px;
   }
   .catename{
     text-align:center;

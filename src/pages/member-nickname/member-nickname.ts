@@ -20,14 +20,15 @@ export class MemberNicknamePage {
   member: Array<any> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
-    this.ionViewWillEnter();
-    this.getMemberInfo();
+    
+    
   }
 
   // 提取token
   ionViewWillEnter(){
-    this.token=window.localStorage.getItem('token');
-    console.log(this.token);
+    // this.token=window.localStorage.getItem('token');
+    this.token = this.appService.getToken();
+    this.getMemberInfo();
   }
 
   // 获取用户信息
@@ -36,7 +37,6 @@ export class MemberNicknamePage {
       token: this.token
     }
     this.appService.httpGet(AppGlobal.API.memberInfo, params, rs=>{
-      console.log(rs);
       if(rs.code == 200){
         this.member = rs.data;
       }
@@ -56,7 +56,9 @@ export class MemberNicknamePage {
     this.appService.httpPost(AppGlobal.API.memberUpdate, params, rs=>{
       console.log(rs);
       if(rs.code == 200){
-        
+        this.appService.alert('操纵成功');
+      }else{
+        this.appService.alert('操作失败');
       }
     })
   }

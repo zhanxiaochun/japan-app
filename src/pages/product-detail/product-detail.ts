@@ -29,7 +29,7 @@ export class ProductDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService, public sanitizer: DomSanitizer, public modalCtrl: ModalController, public events: Events, private statusBar: StatusBar) {
     this.pid = this.navParams.get('pid');
-    this.token = this.appService.getToken();
+    
     this.selectTitle = '选择颜色尺寸及数量';
     this.getPorductDetail(this.pid);
     this.events.subscribe('attr',(data)=>{
@@ -111,6 +111,7 @@ export class ProductDetailPage {
         if(rs.code == 200){
           // this.appService.toast('加入购物车成功');
           this.appService.alert('加入购物车成功');
+          this.attr = [];
         }
       })
     }else{
@@ -121,7 +122,12 @@ export class ProductDetailPage {
 
   // 跳转购物车
   gocart(){
-    this.navCtrl.push(ProductCartPage);
+    if(this.token == null){
+      this.appService.toast('请先登录');
+    }else{
+      this.navCtrl.push(ProductCartPage);
+    }
+    
   }
   
 
@@ -129,6 +135,10 @@ export class ProductDetailPage {
     console.log('ionViewDidLoad ProductDetailPage');
     this.statusBar.overlaysWebView(false);
     this.statusBar.backgroundColorByHexString('#999');
+  }
+
+  ionViewWillEnter(){
+    this.token = this.appService.getToken();
   }
 
 }

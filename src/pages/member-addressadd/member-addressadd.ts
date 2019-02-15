@@ -74,7 +74,7 @@ export class MemberAddressaddPage {
       this.appService.httpPost(AppGlobal.API.memberUpdateAddress, paramsupdate, rs=>{
         if(rs.code == 200){
           this.appService.alert('编辑成功',this.navCtrl.pop().then(()=>{
-            this.events.publish('aaa','ddd');
+            this.events.publish('action','update');
           }));
         }else{
           this.appService.toast(rs.msg);
@@ -84,7 +84,7 @@ export class MemberAddressaddPage {
       this.appService.httpPost(AppGlobal.API.memberAddressAdd, params, rs=>{
         if(rs.code == 200){
           this.appService.alert('新增成功',this.navCtrl.pop().then(()=>{
-            this.events.publish('aaa','ddd');
+            this.events.publish('action','add');
           }));
         }else{
           this.appService.toast(rs.msg);

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from '../login/login';
 import { MemberPage } from '../member/member';
 import { PasswordLoginPage } from '../password-login/password-login';
 import { PasswordPayPage } from '../password-pay/password-pay';
 import { MemberAddressPage } from '../member-address/member-address';
+import { ContactPage } from '../contact/contact';
 
 /**
  * Generated class for the SetupPage page.
@@ -46,7 +46,8 @@ export class SetupPage {
   // 退出登录
   goLogout(){
     window.localStorage.removeItem('token');
-    this.navCtrl.setRoot(LoginPage);
+    //this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.setRoot(ContactPage);
   }
 
   ionViewDidLoad() {

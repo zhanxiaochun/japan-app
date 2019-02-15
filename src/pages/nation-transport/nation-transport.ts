@@ -35,13 +35,8 @@ export class NationTransportPage {
       console.log(data);
       this.raddress = data;
     })
-    this.token = appService.getToken();
     this.success = 0;
-    this.getAddress();
-    this.getReceiveMan();
-    this.getPostcode();
-    this.getPhone();
-    this.getReceiveAddress();
+    
   }
 
   // 获取日本地址
@@ -98,6 +93,7 @@ export class NationTransportPage {
       token: this.token
     }
     this.appService.httpGet(AppGlobal.API.memberGetAddress, params, rs=>{
+      console.log(rs);
       if(rs.code == 200){
         for(let i = 0; i < rs.data.length; i++){
           if(rs.data[i]['isdefault'] == 1){
@@ -112,7 +108,12 @@ export class NationTransportPage {
 
   // 选择地址
   manageAddress(){
-    this.navCtrl.push(MemberAddresscheckPage);
+    if(this.token == null){
+      this.appService.toast(AppGlobal.loginnote);
+    }else{
+      this.navCtrl.push(MemberAddresscheckPage);
+    }
+    
   }
 
   // 提交订单
@@ -126,6 +127,24 @@ export class NationTransportPage {
       note: this.note,
       addressId: this.raddress['id']
     }
+    // console.log(params);return false;
+    if(params.token == null){
+      this.appService.toast(AppGlobal.loginnote);return false;
+    }
+    if(params.addressId == undefined){
+      this.appService.toast('请设置收货地址');return false;
+    }
+    this.appService.checkParams(params.companyName,'请填写快递公司');
+    if(params.companyNo == '' || params.companyNo == undefined){
+      this.appService.toast('请填写快递单号');return false;
+    }
+    if(params.sellDate == '' || params.sellDate == undefined){
+      this.appService.toast('请选择发货日期');return false;
+    }
+    if(params.note == undefined){
+      params.note = '';
+    }
+    
     this.appService.httpPost(AppGlobal.API.submitTransOrder, params, rs=>{
       console.log(rs);
       this.success = 1;
@@ -145,6 +164,15 @@ export class NationTransportPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NationTransportPage');
+  }
+
+  ionViewWillEnter(){
+    this.token = this.appService.getToken();
+    this.getAddress();
+    this.getReceiveMan();
+    this.getPostcode();
+    this.getPhone();
+    this.getReceiveAddress();
   }
 
 }

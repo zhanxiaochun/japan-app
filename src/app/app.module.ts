@@ -9,6 +9,7 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+// import { Wechat } from '@ionic-native/wechat';
 
 
 // import { AboutPage } from '../pages/about/about';
@@ -54,6 +55,7 @@ import { ProductPurchase2orderPageModule } from '../pages/product-purchase2order
 import { ProductSearchPageModule } from '../pages/product-search/product-search.module';
 import { RechargePageModule } from '../pages/recharge/recharge.module';
 import { WithdrawPageModule } from '../pages/withdraw/withdraw.module';
+
 
 @NgModule({
   declarations: [
@@ -124,6 +126,7 @@ import { WithdrawPageModule } from '../pages/withdraw/withdraw.module';
     ImagePicker,
     FileTransfer,
     File,
+  
     // AppMember,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

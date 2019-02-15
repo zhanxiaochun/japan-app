@@ -29,11 +29,15 @@ page-nation-transport {
         background-color:#fff;
         margin-top:1px;
         font-family:"黑体-简";
+        div{
+            width:100%;
+        }
     }
     .item-input{
         font-size:12px;
         border:none;
         margin-left:20px;
+        width:70%;
         // width:200px;
     }
     .input-border{
@@ -85,6 +89,13 @@ page-nation-transport {
     .circle-content{
         margin-top:10px;
         font-size:12px;
+    }
+
+    .datetime-ios .datetime-placeholder{
+        color:#757575!important;
+    }
+    .datestyle{
+        padding-left:12px!important;
     }
 
 }

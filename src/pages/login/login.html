@@ -17,14 +17,14 @@
     <ion-list>
         <ion-row justify-content-between class="item-box">
             <div justify-content-between align-items-center>
-              <label class="label-box"><i class="iconfont" style="font-size:30px;">&#xe60d;</i></label>
+              <label class="label-box"><ion-icon class="iconfont" style="font-size:30px;">&#xe60d;</ion-icon></label>
               <input type="test" class="item-input" value="" placeholder="请输入手机号码" #phonenum>
             </div>
         </ion-row>
   
         <ion-row justify-content-between class="item-box">
             <div justify-content-between align-items-center>
-              <label class="label-box"><i class="iconfont" style="font-size:30px;">&#xe67f;</i></label>
+              <label class="label-box"><ion-icon class="iconfont" style="font-size:30px;">&#xe67f;</ion-icon></label>
               <input type="password" class="item-input" value="" placeholder="请输入登录密码" #password>
             </div>
         </ion-row>
@@ -35,7 +35,7 @@
 
         <ion-row justify-content-between class="item-forgetpass">
               <div>忘记密码？</div>
-              <div>注册</div>
+              <div (click)="register()">注册</div>
         </ion-row>
     
     </ion-list>
